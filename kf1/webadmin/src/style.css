@@ -11,6 +11,10 @@ body {
   font-family: 'Rajdhani', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -23,4 +27,51 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(220, 38, 38, 0.6);
+}
+
+/* Form element base styles */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+textarea,
+select {
+  background: #000;
+  border: 1px solid rgba(139, 0, 0, 0.5);
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 200ms, box-shadow 200ms;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.3);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+button {
+  font-family: 'Rajdhani', sans-serif;
+  cursor: pointer;
+}
+
+/* Utility classes */
+@layer components {
+  .card {
+    @apply bg-horror-gray/50 border border-red-900/20 rounded-lg;
+  }
 }
