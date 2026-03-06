@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uliunai.lt — Killing Floor Community</title>
+  <meta name="description" content="Uliunai.lt — Home of the Killing Floor community. Choose your battlefield: KF1 or KF2.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Uliunai.lt — Killing Floor Community">
+  <meta property="og:description" content="Home of the Killing Floor community. Choose your battlefield: KF1 or KF2.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uliunai.lt/">
+
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="preload" as="image" href="assets/kf1.jpg">
+  <link rel="preload" as="image" href="assets/kf2.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ember Particles -->
+  <div id="ember-container" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="hub-header">
+    <div class="hub-header__inner">
+      <div class="hub-header__logo">
+        <i class="ri-skull-fill hub-header__icon"></i>
+        <span class="hub-header__title"><span class="hub-header__title--red">Uliunai</span>.lt</span>
+      </div>
+      <p class="hub-header__tagline">Choose Your Battlefield</p>
+    </div>
+  </header>
+
+  <!-- Desktop Split Screen -->
+  <main class="split-container">
+
+    <!-- SYNC: Panel content is duplicated in mobile-cards section below -->
+    <!-- KF1 Panel -->
+    <div class="game-panel game-panel--kf1">
+      <div class="game-panel__bg"></div>
+      <div class="game-panel__overlay"></div>
+      <div class="game-panel__content">
+        <div class="game-panel__icon">
+          <i class="ri-sword-fill"></i>
+        </div>
+        <h2 class="game-panel__title glitch" data-text="Killing Floor">Killing Floor</h2>
+        <p class="game-panel__subtitle">The Original</p>
+        <p class="game-panel__description">Step into the classic survival horror experience. Battle waves of specimens with your squad in the game that started it all.</p>
+        <a href="http://kf1.uliunai.lt" class="cta-button">
+          Enter <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Center Divider -->
+    <div class="split-divider" aria-hidden="true">
+      <div class="split-divider__line"></div>
+      <span class="split-divider__text">VS</span>
+      <div class="split-divider__line"></div>
+    </div>
+
+    <!-- KF2 Panel -->
+    <div class="game-panel game-panel--kf2" role="button" tabindex="0" aria-label="Killing Floor 2 — Coming Soon" aria-disabled="true">
+      <div class="game-panel__bg"></div>
+      <div class="game-panel__overlay"></div>
+      <div class="game-panel__content">
+        <div class="game-panel__icon">
+          <i class="ri-crosshair-2-fill"></i>
+        </div>
+        <h2 class="game-panel__title glitch" data-text="Killing Floor 2">Killing Floor 2</h2>
+        <p class="game-panel__subtitle">The Evolution</p>
+        <p class="game-panel__description">Experience next-gen gore and intense cooperative gameplay. The zeds have evolved — have you?</p>
+        <span class="cta-button cta-button--disabled">
+          <i class="ri-time-line"></i> Coming Soon
+        </span>
+      </div>
+      <div class="coming-soon-overlay">
+        <span class="coming-soon-badge">Coming Soon</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Mobile Cards -->
+  <div class="mobile-cards">
+    <!-- SYNC: Card content is duplicated from split-container above -->
+    <div class="mobile-cards__track">
+
+      <!-- KF1 Mobile Card -->
+      <div class="mobile-card mobile-card--kf1">
+        <div class="game-panel__bg"></div>
+        <div class="game-panel__overlay"></div>
+        <div class="game-panel__content">
+          <div class="game-panel__icon">
+            <i class="ri-sword-fill"></i>
+          </div>
+          <h2 class="game-panel__title glitch" data-text="Killing Floor">Killing Floor</h2>
+          <p class="game-panel__subtitle">The Original</p>
+          <p class="game-panel__description">Step into the classic survival horror experience. Battle waves of specimens with your squad in the game that started it all.</p>
+          <a href="http://kf1.uliunai.lt" class="cta-button">
+            Enter <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- KF2 Mobile Card -->
+      <div class="mobile-card mobile-card--kf2" aria-label="Killing Floor 2 — Coming Soon" aria-disabled="true">
+        <div class="game-panel__bg"></div>
+        <div class="game-panel__overlay"></div>
+        <div class="game-panel__content">
+          <div class="game-panel__icon">
+            <i class="ri-crosshair-2-fill"></i>
+          </div>
+          <h2 class="game-panel__title glitch" data-text="Killing Floor 2">Killing Floor 2</h2>
+          <p class="game-panel__subtitle">The Evolution</p>
+          <p class="game-panel__description">Experience next-gen gore and intense cooperative gameplay. The zeds have evolved — have you?</p>
+          <span class="cta-button cta-button--disabled">
+            <i class="ri-time-line"></i> Coming Soon
+          </span>
+        </div>
+        <div class="coming-soon-overlay">
+          <span class="coming-soon-badge">Coming Soon</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dot Indicators -->
+    <div class="mobile-dots">
+      <button class="mobile-dot mobile-dot--active" aria-label="Go to Killing Floor 1" data-index="0"></button>
+      <button class="mobile-dot" aria-label="Go to Killing Floor 2" data-index="1"></button>
+    </div>
+
+    <!-- Swipe Hint -->
+    <div class="swipe-hint">
+      <i class="ri-arrow-left-right-line"></i>
+      <span>Swipe to explore</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="hub-footer">
+    <p>&copy; 2026 Uliunai.lt</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

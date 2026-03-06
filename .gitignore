@@ -1,0 +1,11 @@
+node_modules
+dist
+*.local
+.DS_Store
+
+# Design iteration screenshots
+*.png
+!hub/assets/**/*.png
+
+# Playwright MCP
+.playwright-mcp/

@@ -1,20 +1,23 @@
 import { useState } from 'react';
+import { MotionIcon } from 'motion-icons-react';
 import Button from '../../../components/base/Button';
 import Card from '../../../components/base/Card';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 /**
  * ContactSection component providing contact form and support information.
- * 
+ *
  * @description Displays a contact form for users to send messages, along with
  * contact information including Discord, Steam, and server connection details.
  * Includes form validation and submission handling.
- * 
+ *
  * @returns {JSX.Element} The contact section component
  */
 export default function ContactSection() {
+  const sectionRef = useScrollReveal();
   /**
    * Form data state containing user input values.
-   * 
+   *
    * @type {{name: string, email: string, subject: string, message: string}}
    */
   const [formData, setFormData] = useState({
@@ -26,21 +29,21 @@ export default function ContactSection() {
 
   /**
    * Loading state indicating if the form is currently being submitted.
-   * 
+   *
    * @type {boolean}
    */
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   /**
    * Form submission status state.
-   * 
+   *
    * @type {'idle' | 'success' | 'error'}
    */
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   /**
    * Handles input field changes and updates form data state.
-   * 
+   *
    * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>} e - The change event
    */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -53,34 +56,34 @@ export default function ContactSection() {
 
   /**
    * Handles form submission with validation and API call.
-   * 
+   *
    * @param {React.FormEvent} e - The form submit event
    * @description Validates message length, submits form data to the server,
    * and updates submission status. Resets form on successful submission.
    */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (formData.message.length > 500) {
       alert('Message must be 500 characters or less');
       return;
     }
-    
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
-    
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
       formDataToSend.append('subject', formData.subject);
       formDataToSend.append('message', formData.message);
-      
+
       const response = await fetch('FORM_URL_PLACEHOLDER', {
         method: 'POST',
         body: new URLSearchParams(formDataToSend as any)
       });
-      
+
       if (response.ok) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
@@ -95,10 +98,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="contact" ref={sectionRef} className="py-20 bg-black/80">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-orbitron">
+        <div className="text-center mb-16 scroll-reveal">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-orbitron horror-heading">
             Get In <span className="text-red-500">Touch</span>
           </h2>
           <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
@@ -108,6 +111,7 @@ export default function ContactSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="scroll-reveal" style={{ animationDelay: '0.1s' }}>
           <Card variant="dark">
             <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Send us a Message</h3>
             <form id="contact-form" data-readdy-form onSubmit={handleSubmit} className="space-y-6">
@@ -143,7 +147,7 @@ export default function ContactSection() {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                   Subject *
@@ -165,7 +169,7 @@ export default function ContactSection() {
                   <option value="other">Other</option>
                 </select>
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message * (Max 500 characters)
@@ -185,12 +189,12 @@ export default function ContactSection() {
                   {formData.message.length}/500 characters
                 </div>
               </div>
-              
-              <Button 
-                type="submit" 
-                variant="primary" 
-                size="lg" 
-                className="w-full"
+
+              <Button
+                type="submit"
+                variant="primary"
+                size="lg"
+                className="pulse-glow w-full"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -205,14 +209,14 @@ export default function ContactSection() {
                   </>
                 )}
               </Button>
-              
+
               {submitStatus === 'success' && (
                 <div className="text-green-400 text-center">
                   <i className="ri-check-circle-fill mr-2"></i>
                   Message sent successfully!
                 </div>
               )}
-              
+
               {submitStatus === 'error' && (
                 <div className="text-red-400 text-center">
                   <i className="ri-error-warning-fill mr-2"></i>
@@ -221,14 +225,16 @@ export default function ContactSection() {
               )}
             </form>
           </Card>
+          </div>
 
           <div className="space-y-8">
+            <div className="scroll-reveal" style={{ animationDelay: '0.2s' }}>
             <Card variant="blood">
               <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Connect With Us</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <i className="ri-discord-fill text-white text-xl"></i>
+                    <MotionIcon name="MessageCircle" color="white" size={22} animation="bounce" trigger="hover" interactive />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white">Discord Server</h4>
@@ -238,35 +244,37 @@ export default function ContactSection() {
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <i className="ri-steam-fill text-white text-xl"></i>
+                    <MotionIcon name="Gamepad2" color="white" size={22} animation="wiggle" trigger="hover" interactive />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white">Steam Group</h4>
                     <p className="text-gray-300">Follow for updates</p>
                     <button className="text-red-400 hover:text-red-300 transition-colors cursor-pointer whitespace-nowrap">
-                      steamcommunity.com/groups/uliunai
+                      steamcommunity.com/groups/uliunailt
                     </button>
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <i className="ri-gamepad-fill text-white text-xl"></i>
+                    <MotionIcon name="Monitor" color="white" size={22} animation="pulse" trigger="hover" interactive />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white">Game Server</h4>
                     <p className="text-gray-300">Direct connect</p>
                     <button className="text-red-400 hover:text-red-300 transition-colors cursor-pointer whitespace-nowrap font-mono">
-                      uliunai.lt:7707
+                      51.195.117.236:9980
                     </button>
                   </div>
                 </div>
               </div>
             </Card>
-            
+            </div>
+
+            <div className="scroll-reveal" style={{ animationDelay: '0.3s' }}>
             <Card variant="dark">
               <h3 className="text-xl font-bold text-white mb-4 font-orbitron">Quick Support</h3>
               <p className="text-gray-300 mb-4">
@@ -277,6 +285,7 @@ export default function ContactSection() {
                 <p><strong>Support Hours:</strong> 24/7 via Discord</p>
               </div>
             </Card>
+            </div>
           </div>
         </div>
       </div>

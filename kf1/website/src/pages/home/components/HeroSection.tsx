@@ -1,5 +1,6 @@
 import Button from '../../../components/base/Button';
 import LiveStats from '../../../components/feature/LiveStats';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 /**
  * HeroSection component displaying the main landing section.
@@ -11,14 +12,16 @@ import LiveStats from '../../../components/feature/LiveStats';
  * @returns {JSX.Element} The hero section component
  */
 export default function HeroSection() {
+  const sectionRef = useScrollReveal();
+
   /**
    * Opens the Steam client to connect to the game server.
-   * 
+   *
    * @description Uses the Steam protocol handler to launch the game client
    * and connect directly to the server at uliunai.lt:7707.
    */
   const handleJoinServer = () => {
-    window.open('steam://connect/uliunai.lt:7707', '_blank');
+    window.open('steam://connect/51.195.117.236:9980', '_blank');
   };
 
   /**
@@ -35,43 +38,51 @@ export default function HeroSection() {
   };
 
   return (
-    <section 
-      id="home" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://readdy.ai/api/search-image?query=dark%20horror%20zombie%20apocalypse%20laboratory%20with%20blood%20stains%20and%20broken%20equipment%2C%20industrial%20setting%20with%20red%20emergency%20lighting%2C%20gritty%20atmosphere%2C%20Killing%20Floor%20game%20style%20environment%20with%20metal%20corridors%20and%20warning%20signs%2C%20post-apocalyptic%20facility&width=1920&height=1080&seq=hero-bg&orientation=landscape')`
-      }}
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70"></div>
+      {/* Background image layer — fades out at bottom so fog bleeds through */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://readdy.ai/api/search-image?query=dark%20horror%20zombie%20apocalypse%20laboratory%20with%20blood%20stains%20and%20broken%20equipment%2C%20industrial%20setting%20with%20red%20emergency%20lighting%2C%20gritty%20atmosphere%2C%20Killing%20Floor%20game%20style%20environment%20with%20metal%20corridors%20and%20warning%20signs%2C%20post-apocalyptic%20facility&width=1920&height=1080&seq=hero-bg&orientation=landscape')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          maskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, black 50%, transparent 100%)',
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent z-[1]"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10" ref={sectionRef}>
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-black text-white mb-6 font-orbitron">
+          <h1 className="glitch-subtle text-6xl md:text-8xl font-black text-white mb-6 font-orbitron">
             <span className="text-red-500">ULIUNAI</span>
             <span className="text-white">.LT</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 font-rajdhani">
+
+          <p className="scroll-reveal text-xl md:text-2xl text-gray-300 mb-8 font-rajdhani">
             The <strong className="text-red-400">Longest-Running</strong> Killing Floor 1 Server
           </p>
-          
-          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-            Join our legendary community with custom weapons, maps, monsters, and years of non-stop action. 
+
+          <p className="scroll-reveal text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+            Join our legendary community with custom weapons, maps, monsters, and years of non-stop action.
             Experience the ultimate Killing Floor adventure with friendly players and active admins.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button 
-              variant="primary" 
-              size="lg" 
+
+          <div className="scroll-reveal flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Button
+              variant="primary"
+              size="lg"
               onClick={handleJoinServer}
-              className="flex items-center gap-3"
+              className="pulse-glow flex items-center gap-3"
             >
               <i className="ri-gamepad-fill text-xl"></i>
               Join Server Now
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               onClick={() => document.getElementById('server-info')?.scrollIntoView({ behavior: 'smooth' })}
               className="flex items-center gap-3"
@@ -80,8 +91,8 @@ export default function HeroSection() {
               Server Info
             </Button>
           </div>
-          
-          <div className="max-w-md mx-auto">
+
+          <div className="scroll-reveal max-w-md mx-auto">
             <LiveStats />
           </div>
         </div>

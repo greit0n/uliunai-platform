@@ -136,3 +136,567 @@ select:focus {
 .glitch {
   animation: glitch 1s linear infinite;
 }
+
+/* ==========================================================================
+   HORROR VISUAL EFFECTS
+   Ambient overlays, animations, and utility classes for the horror/gaming theme
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Scanlines Overlay
+   Fixed full-screen CRT scanline effect with a moving red scanline
+   -------------------------------------------------------------------------- */
+
+.scanlines {
+  position: relative;
+}
+
+.scanlines::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(0, 0, 0, 0.05) 1px,
+    rgba(0, 0, 0, 0.05) 2px
+  );
+}
+
+.scanlines::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 9999;
+  pointer-events: none;
+  background: rgba(255, 0, 0, 0.06);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+  animation: scanline-move 8s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% {
+    top: -2px;
+  }
+  100% {
+    top: 100vh;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Vignette Overlay
+   Dark edges fading toward center for a cinematic horror feel
+   -------------------------------------------------------------------------- */
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   3. Flickering Ambient Light
+   Irregular multi-step flicker simulating unstable horror lighting
+   -------------------------------------------------------------------------- */
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  4% { opacity: 0.9; }
+  6% { opacity: 1; }
+  7% { opacity: 0.8; }
+  8% { opacity: 1; }
+  48% { opacity: 1; }
+  50% { opacity: 0.6; }
+  52% { opacity: 1; }
+  89% { opacity: 1; }
+  90% { opacity: 0.4; }
+  92% { opacity: 1; }
+}
+
+.flicker {
+  animation: flicker 4s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   4. Enhanced Glitch Effect
+   More dramatic glitch with skew transforms and aggressive clip-path
+   -------------------------------------------------------------------------- */
+
+@keyframes glitch-enhanced {
+  0% {
+    text-shadow: 0.05em 0 0 #dc2626, -0.05em -0.025em 0 #00ff00, 0.025em 0.05em 0 #0000ff;
+    transform: skew(0deg);
+    clip-path: none;
+  }
+  10% {
+    text-shadow: -0.05em -0.025em 0 #dc2626, 0.025em 0.025em 0 #00ff00, -0.05em -0.05em 0 #0000ff;
+    transform: skew(2deg);
+    clip-path: inset(20% 0 30% 0);
+  }
+  15% {
+    transform: skew(-1deg);
+    clip-path: inset(50% 0 10% 0);
+  }
+  20% {
+    text-shadow: 0.05em 0 0 #dc2626, -0.05em -0.025em 0 #00ff00, 0.025em 0.05em 0 #0000ff;
+    transform: skew(0deg);
+    clip-path: none;
+  }
+  45% {
+    transform: skew(0deg);
+    clip-path: none;
+  }
+  46% {
+    text-shadow: -0.05em 0.025em 0 #dc2626, 0.05em -0.025em 0 #00ff00, -0.025em 0.05em 0 #0000ff;
+    transform: skew(-3deg);
+    clip-path: inset(10% 0 60% 0);
+  }
+  48% {
+    transform: skew(1deg);
+    clip-path: inset(70% 0 5% 0);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 #dc2626, 0.05em 0 0 #00ff00, 0 -0.05em 0 #0000ff;
+    transform: skew(0deg);
+    clip-path: none;
+  }
+  87% {
+    transform: skew(0deg);
+    clip-path: none;
+  }
+  88% {
+    text-shadow: -0.05em -0.05em 0 #dc2626, 0.05em 0.025em 0 #00ff00, 0.025em -0.05em 0 #0000ff;
+    transform: skew(4deg);
+    clip-path: inset(40% 0 20% 0);
+  }
+  90% {
+    transform: skew(-2deg);
+    clip-path: inset(5% 0 80% 0);
+  }
+  92% {
+    transform: skew(0deg);
+    clip-path: none;
+  }
+  100% {
+    text-shadow: -0.025em 0 0 #dc2626, -0.025em -0.025em 0 #00ff00, -0.025em -0.05em 0 #0000ff;
+    transform: skew(0deg);
+    clip-path: none;
+  }
+}
+
+.glitch-hover {
+  transition: all 0.3s ease;
+}
+
+.glitch-hover:hover {
+  animation: glitch-enhanced 0.5s linear infinite;
+}
+
+.glitch-continuous {
+  animation: glitch-enhanced 2s infinite;
+}
+
+/* Subtle glitch — mostly stable, with rare creepy micro-distortions */
+@keyframes glitch-subtle {
+  0%, 100% {
+    text-shadow: none;
+    transform: none;
+    filter: none;
+  }
+  /* Brief distortion burst 1 */
+  3% { text-shadow: -2px 0 #dc2626, 2px 0 #0000ff; transform: skew(-0.5deg); }
+  3.5% { text-shadow: 2px 0 #dc2626, -1px 0 #00ff00; transform: skew(0.3deg); }
+  4% { text-shadow: none; transform: none; }
+  /* Micro-flicker 2 */
+  27% { text-shadow: -1px 1px #dc2626; }
+  27.5% { text-shadow: none; }
+  /* Distortion burst 2 — slightly longer */
+  52% { text-shadow: 3px 0 #dc2626, -2px 0 #0000ff; transform: skew(1deg); filter: brightness(1.3); }
+  52.8% { text-shadow: -1px -1px #dc2626, 1px 1px #00ff00; transform: skew(-0.5deg); filter: brightness(0.8); }
+  53.2% { text-shadow: none; transform: none; filter: none; }
+  /* Subtle red flash */
+  78% { text-shadow: 0 0 10px rgba(220,38,38,0.5); }
+  78.5% { text-shadow: none; }
+}
+
+.glitch-subtle {
+  animation: glitch-subtle 6s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   5. Blood Drip Enhancement
+   Multiple realistic drip points with growing animation
+   -------------------------------------------------------------------------- */
+
+@keyframes drip-grow {
+  0% { height: 0; opacity: 0; }
+  30% { height: 15px; opacity: 1; }
+  100% { height: 25px; opacity: 0.6; }
+}
+
+.blood-drip-enhanced::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20%;
+  width: 2px;
+  height: 10px;
+  background: linear-gradient(to bottom, #dc2626, transparent);
+  border-radius: 0 0 50% 50%;
+  box-shadow:
+    0 0 0 0 transparent,
+    calc(30vw - 20%) 0 0 0 #dc2626,
+    calc(55vw - 20%) 3px 0 0 #dc2626,
+    calc(78vw - 20%) -1px 0 0 #dc2626;
+  animation: drip-grow 3s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   6. Floating Ember Particles
+   Rising embers with glow for an ambient fire/destruction feel
+   -------------------------------------------------------------------------- */
+
+@keyframes float-up {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
+}
+
+@keyframes float-up-sway {
+  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  50% { transform: translateY(50vh) translateX(30px); }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) translateX(-10px); opacity: 0; }
+}
+
+.ember {
+  width: 3px;
+  height: 3px;
+  background: #ff4500;
+  border-radius: 50%;
+  position: fixed;
+  box-shadow: 0 0 8px 3px rgba(255, 69, 0, 0.7), 0 0 16px 4px rgba(220, 38, 38, 0.3);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. Fog / Mist Layer
+   Slow-drifting translucent fog for atmospheric depth
+   -------------------------------------------------------------------------- */
+
+@keyframes fog-drift {
+  0% { transform: translateX(-10%) translateY(0); }
+  50% { transform: translateX(10%) translateY(-5%); }
+  100% { transform: translateX(-10%) translateY(0); }
+}
+
+.fog-layer {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  opacity: 0.08;
+  background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.4) 0%, transparent 60%);
+}
+
+/* --------------------------------------------------------------------------
+   8. Scroll Reveal Animations
+   Fade-in with directional movement triggered by scroll
+   -------------------------------------------------------------------------- */
+
+@keyframes reveal-up {
+  from { opacity: 0.08; transform: translateY(30px); filter: blur(2px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes reveal-left {
+  from { opacity: 0.08; transform: translateX(-30px); filter: blur(2px); }
+  to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+.scroll-reveal {
+  opacity: 0.08;
+  transform: translateY(15px);
+  filter: blur(1px);
+  transition: none;
+}
+
+.scroll-reveal.revealed {
+  animation: reveal-up 0.7s ease-out forwards;
+}
+
+.scroll-reveal-left {
+  opacity: 0.08;
+  transform: translateX(-15px);
+  filter: blur(1px);
+  transition: none;
+}
+
+.scroll-reveal-left.revealed {
+  animation: reveal-left 0.7s ease-out forwards;
+}
+
+/* --------------------------------------------------------------------------
+   9. Card Horror Hover Effects
+   Red glow and lift on hover with animated border glow
+   -------------------------------------------------------------------------- */
+
+.horror-card {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.horror-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.horror-card:hover {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.2), 0 0 60px rgba(139, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.horror-card:hover::before {
+  opacity: 0.5;
+}
+
+/* --------------------------------------------------------------------------
+   10. Sparking Wire Effect
+   An animated spark that travels along a border line (e.g., footer)
+   -------------------------------------------------------------------------- */
+
+@keyframes spark {
+  0%, 100% { left: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  20% { left: 20%; opacity: 0; }
+  40% { left: 45%; opacity: 1; }
+  50% { left: 50%; opacity: 0; }
+  70% { left: 75%; opacity: 1; }
+  80% { left: 80%; opacity: 0; }
+}
+
+.spark-wire {
+  position: relative;
+  overflow: hidden;
+}
+
+.spark-wire::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 2px;
+  background: #ff4500;
+  box-shadow: 0 0 10px #ff4500, 0 0 20px #dc2626;
+  border-radius: 50%;
+  animation: spark 3s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   11. VHS / Static Noise Effect
+   Subtle analog video interference overlay for gallery images
+   -------------------------------------------------------------------------- */
+
+@keyframes static-noise {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+.vhs-overlay {
+  position: relative;
+}
+
+.vhs-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    rgba(255, 255, 255, 0.03) 1px,
+    rgba(255, 255, 255, 0.03) 2px
+  );
+  background-size: 100% 4px;
+  animation: static-noise 0.5s linear infinite;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Pulsing Glow for CTA Buttons
+   Breathing red glow to draw attention to call-to-action elements
+   -------------------------------------------------------------------------- */
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(220, 38, 38, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(139, 0, 0, 0.3); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   13. Screen Flicker / Horror Flash
+   Rare full-screen red flash simulating emergency lighting
+   -------------------------------------------------------------------------- */
+
+@keyframes screen-flicker {
+  0%, 100% { opacity: 0; }
+  /* First burst */
+  15% { opacity: 0; }
+  15.3% { opacity: 0.06; }
+  15.5% { opacity: 0; }
+  15.7% { opacity: 0.04; }
+  16% { opacity: 0; }
+  /* Second burst — slightly longer */
+  45% { opacity: 0; }
+  45.2% { opacity: 0.08; }
+  45.6% { opacity: 0.03; }
+  46% { opacity: 0.07; }
+  46.3% { opacity: 0; }
+  /* Third burst */
+  78% { opacity: 0; }
+  78.1% { opacity: 0.05; }
+  78.3% { opacity: 0; }
+}
+
+.screen-flicker {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.4) 0%, rgba(139, 0, 0, 0.2) 50%, transparent 80%);
+  pointer-events: none;
+  z-index: 9997;
+  animation: screen-flicker 12s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   14. Ambient Red Pulse on Body
+   Very subtle background color breathing
+   -------------------------------------------------------------------------- */
+
+@keyframes ambient-red-pulse {
+  0%, 100% { background-color: #000000; }
+  50% { background-color: #050000; }
+}
+
+body {
+  animation: ambient-red-pulse 8s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   15. Horror Text Shadow for Headings
+   Creepy red underglow on section headings
+   -------------------------------------------------------------------------- */
+
+.horror-heading {
+  text-shadow: 0 0 40px rgba(220, 38, 38, 0.15), 0 0 80px rgba(139, 0, 0, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   16. Realistic CSS Blood Drips for UI Elements
+   SVG-based blood drips that hang from elements (buttons, badges, nav, cards)
+   -------------------------------------------------------------------------- */
+
+/* Base blood drip — attach to any element */
+.blood-drip-ui {
+  position: relative;
+  overflow: visible;
+}
+
+.blood-drip-ui::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  right: 0;
+  height: 25px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 25' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23dc2626'/%3E%3Cstop offset='1' stop-color='%238B0000' stop-opacity='0.6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M30,0 L30,8 Q30,12 30,14 Q29,18 30,20 Q31,22 30,25' stroke='url(%23bg)' fill='none' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M90,0 L90,5 Q90,8 90,11 Q89,14 90,16' stroke='url(%23bg)' fill='none' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M150,0 L150,10 Q150,14 150,17 Q149,20 150,22 Q151,24 150,25' stroke='url(%23bg)' fill='none' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: drip-appear 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes drip-appear {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.8); }
+  50% { opacity: 0.8; transform: scaleY(1); }
+}
+
+/* Heavier blood drip variant for larger elements */
+.blood-drip-heavy {
+  position: relative;
+  overflow: visible;
+}
+
+.blood-drip-heavy::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  height: 35px;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 35' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23dc2626'/%3E%3Cstop offset='0.7' stop-color='%238B0000'/%3E%3Cstop offset='1' stop-color='%234A0000' stop-opacity='0.4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M20,0 L20,12 Q20,18 19,22 Q18,28 20,32 Q22,35 20,35' stroke='url(%23bg)' fill='none' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M75,0 L75,8 Q75,12 74,15 Q73,18 75,20' stroke='url(%23bg)' fill='none' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M140,0 L140,15 Q140,20 139,25 Q138,30 140,33 Q142,35 140,35' stroke='url(%23bg)' fill='none' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M200,0 L200,6 Q200,10 199,13 Q198,15 200,17' stroke='url(%23bg)' fill='none' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M260,0 L260,10 Q260,16 259,20 Q258,24 260,27' stroke='url(%23bg)' fill='none' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  animation: drip-appear 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   17. SVG Blood Drip Animations (BloodDrip component)
+   Keyframes for the BloodDrip React component — drip growth and drop detach
+   -------------------------------------------------------------------------- */
+
+@keyframes blood-drip-fall {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  20% { transform: scaleY(1); opacity: 1; }
+  80% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1.2); opacity: 0.3; }
+}
+
+@keyframes blood-drop-detach {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(60px) scale(0.3); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   18. Zombie Hand Grab Animation (HorrorDecorations component)
+   Subtle rocking/reaching motion for the zombie hand decoration
+   -------------------------------------------------------------------------- */
+
+@keyframes hand-grab {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-3deg) translateY(-5px); }
+  75% { transform: rotate(2deg) translateY(-2px); }
+}
+
+/* --------------------------------------------------------------------------
+   19. Claw Scratch & Splatter Pulse (HorrorDecorations component)
+   Gentle opacity breathing for claw marks and blood splatter decorations
+   -------------------------------------------------------------------------- */
+
+@keyframes scratch-pulse {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.2; }
+}
+

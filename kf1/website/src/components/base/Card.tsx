@@ -34,7 +34,7 @@ export default function Card({ children, className = '', variant = 'default' }: 
   };
   
   return (
-    <div className={`backdrop-blur-sm border rounded-lg p-6 shadow-2xl ${variantClasses[variant]} ${className}`}>
+    <div className={`horror-card backdrop-blur-sm border rounded-lg p-6 shadow-2xl ${variantClasses[variant]} ${className}`}>
       {children}
     </div>
   );

@@ -1,15 +1,17 @@
 import Card from '../../../components/base/Card';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 /**
  * NewsSection component displaying latest server news and announcements.
- * 
+ *
  * @description Shows a grid of news items with different types (event, update,
  * maintenance, tournament) each with distinct icons and colors. Includes a
  * call-to-action for joining the Discord community.
- * 
+ *
  * @returns {JSX.Element} The news section component
  */
 export default function NewsSection() {
+  const sectionRef = useScrollReveal();
   /**
    * Array of news items to display.
    * 
@@ -17,28 +19,28 @@ export default function NewsSection() {
    */
   const news = [
     {
-      date: '2024-12-15',
-      title: 'Winter Event 2024 Now Live!',
-      content: 'Join our special winter event featuring exclusive rewards, custom holiday maps, and limited-time achievements. Event runs until January 15th.',
-      type: 'event'
-    },
-    {
-      date: '2024-12-10',
-      title: 'New Custom Weapon Pack Released',
-      content: 'We\'ve added 5 new custom weapons to our arsenal including the Plasma Rifle and Chainsaw Launcher. Check them out in-game!',
+      date: '2026-03-01',
+      title: 'New Website Launched!',
+      content: 'Welcome to the brand new Uliunai.lt website! Explore server info, community features, and more. Stay tuned for upcoming statistics and VIP pages.',
       type: 'update'
     },
     {
-      date: '2024-12-05',
-      title: 'Server Performance Improvements',
-      content: 'Recent server upgrades have improved stability and reduced lag. Enjoy smoother gameplay with better hit registration.',
+      date: '2026-02-15',
+      title: 'Server Upgraded to v1065',
+      content: 'Our server has been updated with the latest version, including improved stability, +6 custom perks, and a 150 level cap.',
       type: 'maintenance'
     },
     {
-      date: '2024-11-28',
-      title: 'Community Tournament Results',
-      content: 'Congratulations to Team BloodBath for winning our monthly tournament! Next tournament starts December 20th.',
-      type: 'tournament'
+      date: '2026-02-01',
+      title: '9 Years of Uliunai.lt!',
+      content: 'We\'re celebrating 9 years of serving the Killing Floor community! Thank you to all our players for keeping the spirit alive.',
+      type: 'event'
+    },
+    {
+      date: '2026-01-20',
+      title: 'VIP System Coming Soon',
+      content: 'We\'re working on a new VIP system with exclusive perks and rewards. Details and pricing will be announced soon.',
+      type: 'update'
     }
   ];
 
@@ -75,10 +77,10 @@ export default function NewsSection() {
   };
 
   return (
-    <section id="news" className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section id="news" ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-900/80 to-black/80">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-orbitron">
+        <div className="text-center mb-16 scroll-reveal">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-orbitron horror-heading">
             Latest <span className="text-red-500">News</span>
           </h2>
           <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
@@ -89,23 +91,25 @@ export default function NewsSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {news.map((item, index) => (
-            <Card key={index} variant="dark" className="hover:scale-105 transition-transform duration-300">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <i className={`${getTypeIcon(item.type)} ${getTypeColor(item.type)} text-xl`}></i>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm text-gray-400">{item.date}</span>
-                    <span className={`text-xs px-2 py-1 rounded-full bg-gray-800 ${getTypeColor(item.type)} capitalize`}>
-                      {item.type}
-                    </span>
+            <div key={index} className="scroll-reveal" style={{ animationDelay: `${(index + 1) * 0.1}s` }}>
+              <Card variant="dark" className="hover:scale-105 transition-transform duration-300 h-full">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i className={`${getTypeIcon(item.type)} ${getTypeColor(item.type)} text-xl`}></i>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-orbitron">{item.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{item.content}</p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-sm text-gray-400">{item.date}</span>
+                      <span className={`text-xs px-2 py-1 rounded-full bg-gray-800 ${getTypeColor(item.type)} capitalize`}>
+                        {item.type}
+                      </span>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 font-orbitron">{item.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{item.content}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))}
         </div>
 

@@ -1,0 +1,16 @@
+# Local development reverse proxy
+# Run with: caddy run
+# Serves all subdomains on port 80 (HTTP only, no HTTPS locally)
+
+http://uliunai.lt {
+	root * hub
+	file_server
+}
+
+http://kf1.uliunai.lt {
+	reverse_proxy localhost:3000
+}
+
+http://kf2.uliunai.lt {
+	reverse_proxy localhost:3001
+}

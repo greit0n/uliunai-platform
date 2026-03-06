@@ -1,12 +1,13 @@
 import { useState } from 'react';
+import { MotionIcon } from 'motion-icons-react';
 
 /**
  * Navigation component providing site-wide navigation with smooth scrolling.
- * 
+ *
  * @description Displays a fixed navigation bar at the top of the page with links to
  * different sections. Includes a responsive mobile menu that toggles on smaller screens.
  * All navigation links use smooth scrolling to navigate to their respective sections.
- * 
+ *
  * @returns {JSX.Element} A navigation bar component
  */
 export default function Navigation() {
@@ -31,7 +32,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center">
-              <i className="ri-skull-fill text-white text-xl"></i>
+              <span className="flicker"><MotionIcon name="Skull" color="white" size={22} animation="shake" trigger="hover" interactive /></span>
             </div>
             <h1 className="text-2xl font-bold text-white font-orbitron">
               <span className="text-red-500">Uliunai</span>.lt
@@ -41,37 +42,37 @@ export default function Navigation() {
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer whitespace-nowrap"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer whitespace-nowrap"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('server-info')}
-              className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer whitespace-nowrap"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
               Server Info
             </button>
             <button 
               onClick={() => scrollToSection('gallery')}
-              className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer whitespace-nowrap"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
               Gallery
             </button>
             <button 
               onClick={() => scrollToSection('vip')}
-              className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer whitespace-nowrap"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
               VIP
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-gray-300 hover:text-red-400 transition-colors cursor-pointer whitespace-nowrap"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
               Contact
             </button>

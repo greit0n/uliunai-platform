@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import Card from '../../../components/base/Card';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 /**
  * GallerySection component displaying game screenshots and media gallery.
- * 
+ *
  * @description Shows a grid of game screenshots and media items with a lightbox
  * modal for viewing full-size images. Includes placeholder sections for video
  * content and server highlights.
- * 
+ *
  * @returns {JSX.Element} The gallery section component
  */
 export default function GallerySection() {
+  const sectionRef = useScrollReveal();
   /**
    * Currently selected media item for lightbox display.
    * 
@@ -57,10 +59,10 @@ export default function GallerySection() {
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-black">
+    <section id="gallery" ref={sectionRef} className="py-20 bg-black/80">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-orbitron">
+        <div className="text-center mb-16 scroll-reveal">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-orbitron horror-heading">
             Game <span className="text-red-500">Gallery</span>
           </h2>
           <div className="w-24 h-1 bg-red-600 mx-auto mb-6"></div>
@@ -71,24 +73,24 @@ export default function GallerySection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {mediaItems.map((item, index) => (
-            <Card 
-              key={index} 
-              variant="dark" 
-              className="overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => setSelectedMedia(item.src)}
-            >
-              <div className="relative group">
-                <img 
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-48 object-cover object-top rounded-lg"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
-                  <i className="ri-eye-fill text-white text-3xl"></i>
+            <div key={index} className="scroll-reveal" style={{ animationDelay: `${(index + 1) * 0.1}s` }} onClick={() => setSelectedMedia(item.src)}>
+              <Card
+                variant="dark"
+                className="vhs-overlay overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
+              >
+                <div className="relative group">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full h-48 object-cover object-top rounded-lg"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
+                    <i className="ri-eye-fill text-white text-3xl"></i>
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-lg font-bold text-white mt-4 font-orbitron">{item.title}</h3>
-            </Card>
+                <h3 className="text-lg font-bold text-white mt-4 font-orbitron">{item.title}</h3>
+              </Card>
+            </div>
           ))}
         </div>
 

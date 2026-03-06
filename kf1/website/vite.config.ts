@@ -74,8 +74,12 @@ export default defineConfig({
       '@': resolve(__dirname, './src')
     }
   },
+  optimizeDeps: {
+    include: ['motion-icons-react', 'lucide-react'],
+  },
   server: {
     port: 3000,
     host: '0.0.0.0',
+    allowedHosts: ['kf1.uliunai.lt'],
   }
 })
