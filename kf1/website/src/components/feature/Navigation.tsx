@@ -40,7 +40,13 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <button 
+            <a
+              href="https://uliunai.fezle.io"
+              className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
+            >
+              <i className="ri-arrow-left-s-line"></i> Hub
+            </a>
+            <button
               onClick={() => scrollToSection('home')}
               className="text-gray-300 hover:text-red-400 hover:shadow-[0_2px_10px_rgba(220,38,38,0.5)] transition-colors cursor-pointer whitespace-nowrap"
             >
@@ -89,7 +95,13 @@ export default function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-red-900/30">
             <div className="flex flex-col space-y-4">
-              <button 
+              <a
+                href="https://uliunai.fezle.io"
+                className="text-gray-300 hover:text-red-400 transition-colors text-left cursor-pointer whitespace-nowrap"
+              >
+                <i className="ri-arrow-left-s-line"></i> Hub
+              </a>
+              <button
                 onClick={() => scrollToSection('home')}
                 className="text-gray-300 hover:text-red-400 transition-colors text-left cursor-pointer whitespace-nowrap"
               >
