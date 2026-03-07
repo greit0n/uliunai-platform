@@ -76,7 +76,7 @@ export default function GallerySection() {
             <div key={index} className="scroll-reveal" style={{ animationDelay: `${(index + 1) * 0.1}s` }} onClick={() => setSelectedMedia(item.src)}>
               <Card
                 variant="dark"
-                className="vhs-overlay overflow-hidden hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className="vhs-overlay overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
               >
                 <div className="relative group">
                   <img

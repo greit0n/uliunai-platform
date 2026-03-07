@@ -10,6 +10,7 @@ const data = ref<MutatorsData | null>(null)
 const loading = ref(true)
 const error = ref('')
 const submitting = ref(false)
+const success = ref('')
 
 // Track selections
 const radioSelections = ref<Record<string, string>>({})
@@ -63,6 +64,8 @@ async function submit() {
 
     const html = await api.submitForm('current_mutators', formData)
     data.value = parseMutators(html)
+    success.value = 'Mutators saved! Takes effect on next map change.'
+    setTimeout(() => { success.value = '' }, 4000)
   } catch (e) {
     error.value = (e as Error).message
   } finally {
@@ -168,7 +171,10 @@ onMounted(load)
           <i class="ri-save-line" :class="{ 'animate-pulse': submitting }"></i>
           Set Selected Mutators
         </button>
-        <span v-if="error" class="text-red-400 text-sm">
+        <span v-if="success" class="text-green-400 text-sm flex items-center gap-1">
+          <i class="ri-checkbox-circle-line"></i>{{ success }}
+        </span>
+        <span v-else-if="error" class="text-red-400 text-sm">
           <i class="ri-error-warning-line mr-1"></i>{{ error }}
         </span>
       </div>

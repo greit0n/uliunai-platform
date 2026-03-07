@@ -56,16 +56,6 @@ export default function VipSection() {
     }
   ];
 
-  /**
-   * Handles VIP tier purchase action.
-   *
-   * @param {string} tier - The VIP tier name to purchase (VIP or VIP+)
-   * @description Currently shows an alert indicating the purchase feature is coming soon.
-   * In production, this would redirect to a payment processor or open a purchase modal.
-   */
-  const handleBuyVip = (tier: string) => {
-    alert(`${tier} purchase coming soon! Contact admins for now.`);
-  };
 
   return (
     <section id="vip" ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-900/80 to-black/80">
@@ -85,7 +75,7 @@ export default function VipSection() {
             <div key={index} className="scroll-reveal" style={{ animationDelay: `${(index + 1) * 0.1}s` }}>
             <Card
               variant="dark"
-              className={`relative overflow-hidden ${tier.popular ? 'ring-2 ring-red-500 scale-105' : ''}`}
+              className={`relative overflow-hidden hover:scale-[1.02] transition-transform duration-300 ${tier.popular ? 'ring-2 ring-red-500' : ''}`}
             >
               {tier.popular && (
                 <div className="absolute top-0 left-0 right-0 bg-red-600 text-white text-center py-2 font-bold text-sm">
@@ -116,10 +106,10 @@ export default function VipSection() {
                 <Button
                   variant={tier.popular ? 'primary' : 'outline'}
                   size="lg"
-                  onClick={() => handleBuyVip(tier.name)}
-                  className="pulse-glow w-full"
+                  disabled
+                  className="w-full opacity-50 cursor-not-allowed"
                 >
-                  Buy {tier.name}
+                  Coming Soon!
                 </Button>
               </div>
             </Card>
@@ -128,26 +118,26 @@ export default function VipSection() {
         </div>
 
         <div className="text-center mb-12">
-          <Card variant="blood" className="max-w-4xl mx-auto">
+          <Card variant="blood" className="max-w-4xl mx-auto hover:scale-[1.02] transition-transform duration-300">
             <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Why Support Us?</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="flex justify-center mb-3">
-                  <MotionIcon name="Server" color="#f87171" size={30} animation="pulse" trigger="hover" interactive />
+                  <MotionIcon name="Server" color="#f87171" size={30} />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2">Server Costs</h4>
                 <p className="text-gray-300 text-sm">Help us maintain high-performance servers and reliable uptime</p>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-3">
-                  <MotionIcon name="Code" color="#f87171" size={30} animation="bounce" trigger="hover" interactive />
+                  <MotionIcon name="Code" color="#f87171" size={30} />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2">Development</h4>
                 <p className="text-gray-300 text-sm">Fund continued development of custom content and features</p>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-3">
-                  <MotionIcon name="Users" color="#f87171" size={30} animation="bounce" trigger="hover" interactive />
+                  <MotionIcon name="Users" color="#f87171" size={30} />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2">Community</h4>
                 <p className="text-gray-300 text-sm">Support events, tournaments, and community activities</p>
@@ -157,19 +147,9 @@ export default function VipSection() {
         </div>
 
         <div className="text-center">
-          <p className="text-gray-400 mb-4">
+          <p className="text-gray-400">
             All donations go directly to server maintenance and improvement
           </p>
-          <div className="flex justify-center gap-4">
-            <button className="pulse-glow flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer whitespace-nowrap">
-              <i className="ri-paypal-fill text-blue-400"></i>
-              PayPal
-            </button>
-            <button className="pulse-glow flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition-colors cursor-pointer whitespace-nowrap">
-              <i className="ri-bank-card-fill text-green-400"></i>
-              Credit Card
-            </button>
-          </div>
         </div>
       </div>
     </section>

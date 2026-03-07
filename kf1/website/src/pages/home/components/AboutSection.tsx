@@ -26,7 +26,7 @@ export default function AboutSection() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="scroll-reveal" style={{ animationDelay: '0.1s' }}>
-            <Card variant="dark">
+            <Card variant="dark" className="hover:scale-[1.02] transition-transform duration-300">
               <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Years of Excellence</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 Uliunai.lt has been serving the Killing Floor community since <strong className="text-red-400">2017</strong>,
@@ -57,10 +57,10 @@ export default function AboutSection() {
 
           <div className="space-y-6">
             <div className="scroll-reveal" style={{ animationDelay: '0.2s' }}>
-              <Card variant="blood">
+              <Card variant="blood" className="hover:scale-[1.02] transition-transform duration-300">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
-                    <MotionIcon name="Users" color="white" size={22} animation="bounce" trigger="hover" interactive />
+                    <MotionIcon name="Users" color="white" size={22} />
                   </div>
                   <h4 className="text-xl font-bold text-white font-orbitron">Active Community</h4>
                 </div>
@@ -72,10 +72,10 @@ export default function AboutSection() {
             </div>
 
             <div className="scroll-reveal" style={{ animationDelay: '0.3s' }}>
-              <Card variant="blood">
+              <Card variant="blood" className="hover:scale-[1.02] transition-transform duration-300">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
-                    <MotionIcon name="ShieldCheck" color="white" size={22} animation="bounce" trigger="hover" interactive />
+                    <MotionIcon name="ShieldCheck" color="white" size={22} />
                   </div>
                   <h4 className="text-xl font-bold text-white font-orbitron">Fair Play</h4>
                 </div>
@@ -87,10 +87,10 @@ export default function AboutSection() {
             </div>
 
             <div className="scroll-reveal" style={{ animationDelay: '0.4s' }}>
-              <Card variant="blood">
+              <Card variant="blood" className="hover:scale-[1.02] transition-transform duration-300">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
-                    <MotionIcon name="Heart" color="white" size={22} animation="heartbeat" trigger="hover" interactive />
+                    <MotionIcon name="Heart" color="white" size={22} />
                   </div>
                   <h4 className="text-xl font-bold text-white font-orbitron">Still Alive & Thriving</h4>
                 </div>

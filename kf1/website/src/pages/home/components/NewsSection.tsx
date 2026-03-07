@@ -19,15 +19,21 @@ export default function NewsSection() {
    */
   const news = [
     {
-      date: '2026-03-01',
-      title: 'New Website Launched!',
-      content: 'Welcome to the brand new Uliunai.lt website! Explore server info, community features, and more. Stay tuned for upcoming statistics and VIP pages.',
+      date: '2026-03-05',
+      title: 'VIP System Coming Soon',
+      content: 'We\'re developing an exclusive VIP system with double XP, custom perks, reserved slots, and more. Pricing and details will be announced soon!',
       type: 'update'
     },
     {
-      date: '2026-02-15',
-      title: 'Server Upgraded to v1065',
-      content: 'Our server has been updated with the latest version, including improved stability, +6 custom perks, and a 150 level cap.',
+      date: '2026-03-01',
+      title: 'New Website Launched!',
+      content: 'Welcome to the brand new Uliunai.lt website! Browse server info, meet the team, check live stats, and explore our community features.',
+      type: 'update'
+    },
+    {
+      date: '2026-02-20',
+      title: 'New Server Launched',
+      content: 'Our Killing Floor server has moved to a brand new dedicated machine in Germany. Expect better performance, lower ping for EU players, and improved stability.',
       type: 'maintenance'
     },
     {
@@ -35,12 +41,6 @@ export default function NewsSection() {
       title: '9 Years of Uliunai.lt!',
       content: 'We\'re celebrating 9 years of serving the Killing Floor community! Thank you to all our players for keeping the spirit alive.',
       type: 'event'
-    },
-    {
-      date: '2026-01-20',
-      title: 'VIP System Coming Soon',
-      content: 'We\'re working on a new VIP system with exclusive perks and rewards. Details and pricing will be announced soon.',
-      type: 'update'
     }
   ];
 
@@ -92,7 +92,7 @@ export default function NewsSection() {
         <div className="grid md:grid-cols-2 gap-8">
           {news.map((item, index) => (
             <div key={index} className="scroll-reveal" style={{ animationDelay: `${(index + 1) * 0.1}s` }}>
-              <Card variant="dark" className="hover:scale-105 transition-transform duration-300 h-full">
+              <Card variant="dark" className="hover:scale-[1.02] transition-transform duration-300 h-full">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <i className={`${getTypeIcon(item.type)} ${getTypeColor(item.type)} text-xl`}></i>
@@ -116,7 +116,7 @@ export default function NewsSection() {
         <div className="text-center mt-12">
           <Card variant="blood" className="inline-block">
             <div className="flex items-center gap-4">
-              <i className="ri-notification-fill text-red-400 text-2xl"></i>
+              <i className="ri-notification-fill text-red-400 text-2xl animate-ring"></i>
               <div>
                 <h3 className="text-lg font-bold text-white font-orbitron">Stay Connected</h3>
                 <p className="text-gray-300">Join our Discord for real-time updates and community chat</p>

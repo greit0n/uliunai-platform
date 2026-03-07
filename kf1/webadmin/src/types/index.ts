@@ -26,6 +26,10 @@ export interface Player {
   teamKills: number
   ip: string
   globalId: string
+  /** Checkbox field names parsed from the HTML form */
+  kickField: string
+  sessionField: string
+  banField: string
 }
 
 export interface PlayersData {
@@ -139,6 +143,86 @@ export interface IpPolicyData {
   serverInfo: ServerInfo
   policies: IpPolicy[]
 }
+
+// Voting GameConfig page
+export interface VotingGameConfigEntry {
+  index: number
+  gameType: string
+  mapPrefixes: string
+  abbreviation: string
+  name: string
+  mutators: string[]
+  options: string
+  isEditing: boolean
+  gameTypeOptions: SelectOption[]
+  mutatorOptions: SelectOption[]
+}
+
+export interface VotingGameConfigData {
+  serverInfo: ServerInfo
+  description: string
+  entries: VotingGameConfigEntry[]
+  newIndex: number
+}
+
+// Live game state from UliunaiStats mutator
+export interface MonsterKills {
+  clot: number
+  gorefast: number
+  crawler: number
+  stalker: number
+  bloat: number
+  siren: number
+  husk: number
+  scrake: number
+  fleshpound: number
+  boss: number
+  other: number
+}
+
+export interface GameStatePlayer {
+  name: string
+  perk: string
+  perkLevel: number
+  kills: number
+  monsterKills: MonsterKills
+  cash: number
+  health: number
+  maxHealth: number
+  deaths: number
+  ping: number
+}
+
+export interface GameState {
+  wave: {
+    current: number
+    total: number
+    inProgress: boolean
+    traderTime: boolean
+  }
+  zeds: {
+    alive: number
+    maxAtOnce: number
+  }
+  difficulty: string
+  difficultyNum: number
+  map: string
+  players: GameStatePlayer[]
+  playerCount: number
+}
+
+// Game type options for Defaults section
+export interface GameTypeOption {
+  value: string
+  label: string
+}
+
+export const GAME_TYPES: GameTypeOption[] = [
+  { value: 'KFMod.KFGameType', label: 'Killing Floor' },
+  { value: 'KFMod.KFDMGameType', label: 'Feud' },
+  { value: 'KFStoryGame.KFStoryGameInfo', label: 'Objective Mode' },
+  { value: 'KFMod.KFSPGameType', label: 'Story' },
+]
 
 // Rule filter types
 export type RuleFilter = 'Game' | 'Server' | 'Chat' | 'Kick Voting' | 'Map Voting' | 'Sandbox'

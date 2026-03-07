@@ -2,12 +2,14 @@
 import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
 import { api } from '@/services/api'
 import { parseConsoleLog } from '@/services/parsers'
+
 const lines = ref<string[]>([])
 const loading = ref(true)
 const error = ref('')
-const commandText = ref('say ')
+const messageText = ref('')
 const logContainer = ref<HTMLElement | null>(null)
 const sending = ref(false)
+const commandMode = ref(false)
 
 let refreshInterval: ReturnType<typeof setInterval> | null = null
 
@@ -39,15 +41,19 @@ watch(
 )
 
 async function sendCommand() {
-  if (!commandText.value.trim() || sending.value) return
+  if (!messageText.value.trim() || sending.value) return
 
   sending.value = true
   try {
+    const text = commandMode.value
+      ? messageText.value
+      : 'say ' + messageText.value
+
     await api.submitForm('current_console', {
-      SendText: commandText.value,
+      SendText: text,
       Send: 'Send',
     })
-    commandText.value = 'say '
+    messageText.value = ''
     await loadLog()
   } catch (e) {
     error.value = (e as Error).message
@@ -65,7 +71,7 @@ function handleKeydown(e: KeyboardEvent) {
 
 onMounted(() => {
   loadLog()
-  refreshInterval = setInterval(loadLog, 5000)
+  refreshInterval = setInterval(loadLog, 2000)
 })
 
 onUnmounted(() => {
@@ -85,7 +91,7 @@ onUnmounted(() => {
       <div class="flex items-center gap-2">
         <span class="text-xs text-gray-500 flex items-center gap-1">
           <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-          Auto-refresh: 5s
+          Auto-refresh: 2s
         </span>
       </div>
     </div>
@@ -129,20 +135,30 @@ onUnmounted(() => {
 
       <!-- Command input -->
       <div class="bg-[#111] border border-t-0 border-red-900/20 rounded-b-lg p-3 flex gap-3">
-        <div class="flex-1 relative">
-          <i class="ri-terminal-line absolute left-3 top-1/2 -translate-y-1/2 text-red-500/50"></i>
+        <div class="flex-1 relative flex items-center">
+          <!-- Mode toggle -->
+          <button
+            @click="commandMode = !commandMode"
+            class="shrink-0 px-2.5 py-2 rounded-l border border-r-0 border-red-900/30 text-xs font-mono font-bold transition-colors"
+            :class="commandMode
+              ? 'bg-yellow-900/40 text-yellow-400 hover:bg-yellow-900/60'
+              : 'bg-red-900/30 text-red-400 hover:bg-red-900/50'"
+            :title="commandMode ? 'Raw command mode — click to switch to Say mode' : 'Say mode — click to switch to raw command mode'"
+          >
+            {{ commandMode ? '>' : 'say' }}
+          </button>
           <input
-            v-model="commandText"
+            v-model="messageText"
             type="text"
             maxlength="200"
             @keydown="handleKeydown"
-            placeholder="Enter command..."
-            class="w-full bg-black border border-red-900/30 rounded px-3 py-2 pl-9 text-white font-mono focus:border-red-500 focus:outline-none"
+            :placeholder="commandMode ? 'Enter raw command...' : 'Type message...'"
+            class="w-full bg-black border border-red-900/30 rounded-r px-3 py-2 text-white font-mono focus:border-red-500 focus:outline-none"
           />
         </div>
         <button
           @click="sendCommand"
-          :disabled="!commandText.trim() || sending"
+          :disabled="!messageText.trim() || sending"
           class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-2"
         >
           <i class="ri-send-plane-fill" :class="{ 'animate-pulse': sending }"></i>

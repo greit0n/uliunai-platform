@@ -1,0 +1,571 @@
+- generic [ref=e5]:
+  - navigation [ref=e6]:
+    - generic [ref=e8]:
+      - generic [ref=e9]:
+        - button "Skull" [ref=e12] [cursor=pointer]:
+          - img [ref=e13]
+        - heading "Uliunai.lt" [level=1] [ref=e18]
+      - generic [ref=e19]:
+        - link " Hub" [ref=e20] [cursor=pointer]:
+          - /url: https://uliunai.fezle.io
+          - generic [ref=e21]: 
+          - text: Hub
+        - button "Home" [ref=e22] [cursor=pointer]
+        - button "About" [ref=e23] [cursor=pointer]
+        - button "Server Info" [ref=e24] [cursor=pointer]
+        - button "Gallery" [ref=e25] [cursor=pointer]
+        - button "VIP" [ref=e26] [cursor=pointer]
+        - button "Contact" [ref=e27] [cursor=pointer]
+      - text: 
+  - main [ref=e28]:
+    - generic [ref=e29]:
+      - generic [ref=e33]:
+        - heading "ULIUNAI.LT" [level=1] [ref=e34]
+        - paragraph [ref=e35]:
+          - text: The
+          - strong [ref=e36]: Longest-Running
+          - text: Killing Floor 1 Server
+        - paragraph [ref=e37]: Join our legendary community with custom weapons, maps, monsters, and years of non-stop action. Experience the ultimate Killing Floor adventure with friendly players and active admins.
+        - generic [ref=e38]:
+          - button " Join Server Now" [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: 
+            - text: Join Server Now
+          - button " Server Info" [ref=e41] [cursor=pointer]:
+            - generic [ref=e42]: 
+            - text: Server Info
+        - generic [ref=e44]:
+          - generic [ref=e45]:
+            - heading "Server Live" [level=3] [ref=e649]
+            - generic [ref=e650]:
+              - generic [ref=e651]:
+                - generic [ref=e652]: "0"
+                - generic [ref=e653]: Players
+              - generic [ref=e654]:
+                - generic [ref=e655]: 1 / 5
+                - generic [ref=e656]: Wave · Waiting
+            - generic [ref=e657]:
+              - generic [ref=e658]:
+                - generic [ref=e659]: Aperture
+                - generic [ref=e660]: Current Map
+              - generic [ref=e661]:
+                - generic [ref=e662]: Hard
+                - generic [ref=e663]: Difficulty
+            - generic [ref=e52]: "Server IP: 94.130.51.236:7707"
+          - generic [ref=e665]:
+            - img "KF-Aperture" [ref=e666]
+            - generic [ref=e668]:
+              - generic [ref=e669]: Now Playing
+              - generic [ref=e670]: KF-Aperture
+      - button "Scroll to next section" [ref=e53] [cursor=pointer]:
+        - generic [ref=e54]: 
+    - generic [ref=e56]:
+      - heading "About Our Community" [level=2] [ref=e58]
+      - generic [ref=e60]:
+        - generic [ref=e62]:
+          - heading "Years of Excellence" [level=3] [ref=e63]
+          - paragraph [ref=e64]:
+            - text: Uliunai.lt has been serving the Killing Floor community since
+            - strong [ref=e65]: "2017"
+            - text: ", making us one of the most established and trusted servers in the game. Our dedication to providing an exceptional gaming experience has earned us a loyal following of players from around the world."
+          - paragraph [ref=e66]:
+            - text: What sets us apart is our
+            - strong [ref=e67]: friendly and welcoming community
+            - text: . Whether you're a seasoned veteran or new to Killing Floor, you'll find helpful players and active admins ready to assist and ensure everyone has a great time.
+          - generic [ref=e68]:
+            - generic [ref=e69]:
+              - generic [ref=e70]: 9+
+              - generic [ref=e71]: Years Active
+            - generic [ref=e72]:
+              - generic [ref=e73]: 10K+
+              - generic [ref=e74]: Players Served
+            - generic [ref=e75]:
+              - generic [ref=e76]: 24/7
+              - generic [ref=e77]: Uptime
+        - generic [ref=e78]:
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - button "Users" [ref=e83] [cursor=pointer]:
+                - img [ref=e84]
+              - heading "Active Community" [level=4] [ref=e89]
+            - paragraph [ref=e90]: Our server maintains an active player base with regular events, tournaments, and community challenges that keep the gameplay fresh and exciting.
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - button "ShieldCheck" [ref=e95] [cursor=pointer]:
+                - img [ref=e96]
+              - heading "Fair Play" [level=4] [ref=e99]
+            - paragraph [ref=e100]: We maintain a clean, fair gaming environment with active moderation and anti-cheat measures to ensure everyone can enjoy the game as intended.
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - button "Heart" [ref=e105] [cursor=pointer]:
+                - img [ref=e106]
+              - heading "Still Alive & Thriving" [level=4] [ref=e108]
+            - paragraph [ref=e109]: While many servers have come and gone, Uliunai.lt continues to thrive with regular updates, new content, and a passionate community that keeps the spirit of Killing Floor alive.
+    - generic [ref=e111]:
+      - generic [ref=e112]:
+        - heading "Server Features" [level=2] [ref=e113]
+        - paragraph [ref=e115]: Experience Killing Floor like never before with our extensive custom content and active community
+      - generic [ref=e116]:
+        - generic [ref=e118]:
+          - button "Swords" [ref=e120] [cursor=pointer]:
+            - img [ref=e121]
+          - heading "Custom Weapons" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Unique arsenal with custom weapons not found in vanilla Killing Floor
+        - generic [ref=e133]:
+          - button "Map" [ref=e135] [cursor=pointer]:
+            - img [ref=e136]
+          - heading "Custom Maps" [level=3] [ref=e138]
+          - paragraph [ref=e139]: Exclusive maps designed for enhanced gameplay and new challenges
+        - generic [ref=e141]:
+          - button "Skull" [ref=e143] [cursor=pointer]:
+            - img [ref=e144]
+          - heading "Custom Monsters" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Face new and terrifying creatures with unique abilities and behaviors
+        - generic [ref=e152]:
+          - button "Star" [ref=e154] [cursor=pointer]:
+            - img [ref=e155]
+          - heading "Active Admins" [level=3] [ref=e157]
+          - paragraph [ref=e158]: Dedicated administrators ensuring fair play and server stability
+        - generic [ref=e160]:
+          - button "CalendarDays" [ref=e162] [cursor=pointer]:
+            - img [ref=e163]
+          - heading "Regular Events" [level=3] [ref=e165]
+          - paragraph [ref=e166]: Weekly tournaments, special events, and community challenges
+        - generic [ref=e168]:
+          - button "RefreshCw" [ref=e170] [cursor=pointer]:
+            - img [ref=e171]
+          - heading "Regular Updates" [level=3] [ref=e176]
+          - paragraph [ref=e177]: Continuous improvements and new content additions
+      - generic [ref=e178]:
+        - generic [ref=e180]:
+          - heading "Server Information" [level=3] [ref=e181]
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - heading "Connection Details" [level=4] [ref=e184]
+              - generic [ref=e185]:
+                - generic [ref=e186]:
+                  - strong [ref=e187]: "Server IP:"
+                  - text: 51.195.117.236:9980
+                - generic [ref=e188]:
+                  - strong [ref=e189]: "Game Version:"
+                  - text: Killing Floor v1065
+                - generic [ref=e190]:
+                  - strong [ref=e191]: "Max Players:"
+                  - text: "32"
+                - generic [ref=e192]:
+                  - strong [ref=e193]: "Difficulty:"
+                  - text: HOE / Suicidal / Hard
+            - generic [ref=e194]:
+              - heading "Server Features" [level=4] [ref=e195]
+              - generic [ref=e196]:
+                - generic [ref=e197]: ✓ 150 Level Cap
+                - generic [ref=e198]: ✓ +6 Custom Perks
+                - generic [ref=e199]: ✓ Custom Weapons & Maps
+                - generic [ref=e200]: ✓ VIP System Available
+          - generic [ref=e201]:
+            - button " Join Server" [ref=e202] [cursor=pointer]:
+              - generic [ref=e203]: 
+              - text: Join Server
+            - button " View Rankings" [ref=e204] [cursor=pointer]:
+              - generic [ref=e205]: 
+              - text: View Rankings
+            - button " Online Players" [ref=e206] [cursor=pointer]:
+              - generic [ref=e207]: 
+              - text: Online Players
+        - generic [ref=e209]:
+          - generic [ref=e210]:
+            - heading "Server Live" [level=3] [ref=e671]
+            - generic [ref=e672]:
+              - generic [ref=e673]:
+                - generic [ref=e674]: "0"
+                - generic [ref=e675]: Players
+              - generic [ref=e676]:
+                - generic [ref=e677]: 1 / 5
+                - generic [ref=e678]: Wave · Waiting
+            - generic [ref=e679]:
+              - generic [ref=e680]:
+                - generic [ref=e681]: Aperture
+                - generic [ref=e682]: Current Map
+              - generic [ref=e683]:
+                - generic [ref=e684]: Hard
+                - generic [ref=e685]: Difficulty
+            - generic [ref=e217]: "Server IP: 94.130.51.236:7707"
+          - generic [ref=e687]:
+            - img "KF-Aperture" [ref=e688]
+            - generic [ref=e690]:
+              - generic [ref=e691]: Now Playing
+              - generic [ref=e692]: KF-Aperture
+    - generic [ref=e219]:
+      - generic [ref=e220]:
+        - heading "Game Gallery" [level=2] [ref=e221]
+        - paragraph [ref=e223]: Take a look at the intense action and custom content that awaits you on our server
+      - generic [ref=e224]:
+        - generic [ref=e226] [cursor=pointer]:
+          - generic [ref=e227]:
+            - img "Epic Team Battle" [ref=e228]
+            - generic [ref=e230]: 
+          - heading "Epic Team Battle" [level=3] [ref=e231]
+        - generic [ref=e233] [cursor=pointer]:
+          - generic [ref=e234]:
+            - 'img "Custom Map: Industrial Complex" [ref=e235]'
+            - generic [ref=e237]: 
+          - 'heading "Custom Map: Industrial Complex" [level=3] [ref=e238]'
+        - generic [ref=e240] [cursor=pointer]:
+          - generic [ref=e241]:
+            - 'img "Boss Fight: The Patriarch" [ref=e242]'
+            - generic [ref=e244]: 
+          - 'heading "Boss Fight: The Patriarch" [level=3] [ref=e245]'
+        - generic [ref=e247] [cursor=pointer]:
+          - generic [ref=e248]:
+            - img "Custom Weapons Arsenal" [ref=e249]
+            - generic [ref=e251]: 
+          - heading "Custom Weapons Arsenal" [level=3] [ref=e252]
+        - generic [ref=e254] [cursor=pointer]:
+          - generic [ref=e255]:
+            - img "Community Players" [ref=e256]
+            - generic [ref=e258]: 
+          - heading "Community Players" [level=3] [ref=e259]
+        - generic [ref=e261] [cursor=pointer]:
+          - generic [ref=e262]:
+            - img "Custom Specimens" [ref=e263]
+            - generic [ref=e265]: 
+          - heading "Custom Specimens" [level=3] [ref=e266]
+      - generic [ref=e267]:
+        - heading "Server Highlights" [level=3] [ref=e268]
+        - generic [ref=e269]:
+          - generic [ref=e272]:
+            - generic [ref=e273]: 
+            - paragraph [ref=e274]: Server Trailer
+            - paragraph [ref=e275]: Epic moments compilation
+          - generic [ref=e278]:
+            - generic [ref=e279]: 
+            - paragraph [ref=e280]: Custom Content Showcase
+            - paragraph [ref=e281]: New weapons and maps
+    - generic [ref=e283]:
+      - generic [ref=e284]:
+        - heading "Latest News" [level=2] [ref=e285]
+        - paragraph [ref=e287]: Stay updated with the latest server news, events, and announcements
+      - generic [ref=e288]:
+        - generic [ref=e291]:
+          - generic [ref=e293]: 
+          - generic [ref=e294]:
+            - generic [ref=e295]:
+              - generic [ref=e296]: 2026-03-01
+              - generic [ref=e297]: update
+            - heading "New Website Launched!" [level=3] [ref=e298]
+            - paragraph [ref=e299]: Welcome to the brand new Uliunai.lt website! Explore server info, community features, and more. Stay tuned for upcoming statistics and VIP pages.
+        - generic [ref=e302]:
+          - generic [ref=e304]: 
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - generic [ref=e307]: 2026-02-15
+              - generic [ref=e308]: maintenance
+            - heading "Server Upgraded to v1065" [level=3] [ref=e309]
+            - paragraph [ref=e310]: Our server has been updated with the latest version, including improved stability, +6 custom perks, and a 150 level cap.
+        - generic [ref=e313]:
+          - generic [ref=e315]: 
+          - generic [ref=e316]:
+            - generic [ref=e317]:
+              - generic [ref=e318]: 2026-02-01
+              - generic [ref=e319]: event
+            - heading "9 Years of Uliunai.lt!" [level=3] [ref=e320]
+            - paragraph [ref=e321]: We're celebrating 9 years of serving the Killing Floor community! Thank you to all our players for keeping the spirit alive.
+        - generic [ref=e324]:
+          - generic [ref=e326]: 
+          - generic [ref=e327]:
+            - generic [ref=e328]:
+              - generic [ref=e329]: 2026-01-20
+              - generic [ref=e330]: update
+            - heading "VIP System Coming Soon" [level=3] [ref=e331]
+            - paragraph [ref=e332]: We're working on a new VIP system with exclusive perks and rewards. Details and pricing will be announced soon.
+      - generic [ref=e335]:
+        - generic [ref=e336]: 
+        - generic [ref=e337]:
+          - heading "Stay Connected" [level=3] [ref=e338]
+          - paragraph [ref=e339]: Join our Discord for real-time updates and community chat
+        - button "Join Discord" [ref=e340] [cursor=pointer]
+    - generic [ref=e342]:
+      - generic [ref=e343]:
+        - heading "Meet Our Team" [level=2] [ref=e344]
+        - paragraph [ref=e346]: Our dedicated administrators work around the clock to ensure the best gaming experience
+      - generic [ref=e347]:
+        - generic [ref=e349]:
+          - generic [ref=e350]:
+            - img "Lytair" [ref=e352]
+            - generic [ref=e353]: 9+ Years
+          - heading "Lytair" [level=3] [ref=e354]
+          - paragraph [ref=e355]: Head Administrator
+          - paragraph [ref=e356]: Leading the Uliunai.lt community and keeping the server running smoothly for all players. Responsible for overall server management, community moderation, and ensuring a fair gaming environment.
+          - generic [ref=e357]:
+            - heading "Specialties" [level=4] [ref=e358]
+            - generic [ref=e359]:
+              - generic [ref=e360]: Server Management
+              - generic [ref=e361]: Community Moderation
+              - generic [ref=e362]: Player Support
+          - generic [ref=e363]:
+            - button "Gamepad2" [ref=e364] [cursor=pointer]:
+              - button "Gamepad2" [ref=e365]:
+                - img [ref=e366]
+            - button "MessageCircle" [ref=e368] [cursor=pointer]:
+              - button "MessageCircle" [ref=e369]:
+                - img [ref=e370]
+        - generic [ref=e373]:
+          - generic [ref=e374]:
+            - img "HekuT" [ref=e376]
+            - generic [ref=e377]: 9+ Years
+          - heading "HekuT" [level=3] [ref=e378]
+          - paragraph [ref=e379]: Server Technician
+          - paragraph [ref=e380]: The technical backbone of Uliunai.lt. Handles server configuration, ServerPerks setup, custom content integration, and keeps everything running at peak performance.
+          - generic [ref=e381]:
+            - heading "Specialties" [level=4] [ref=e382]
+            - generic [ref=e383]:
+              - generic [ref=e384]: Server Configuration
+              - generic [ref=e385]: ServerPerks
+              - generic [ref=e386]: Custom Content
+          - generic [ref=e387]:
+            - button "Gamepad2" [ref=e388] [cursor=pointer]:
+              - button "Gamepad2" [ref=e389]:
+                - img [ref=e390]
+            - button "MessageCircle" [ref=e392] [cursor=pointer]:
+              - button "MessageCircle" [ref=e393]:
+                - img [ref=e394]
+        - generic [ref=e397]:
+          - generic [ref=e398]:
+            - img "Greiton" [ref=e400]
+            - generic [ref=e401]: 9+ Years
+          - heading "Greiton" [level=3] [ref=e402]
+          - paragraph [ref=e403]: Website Administrator
+          - paragraph [ref=e404]: Designed and built the Uliunai.lt platform from the ground up. Responsible for the website, statistics pages, and all web-related infrastructure.
+          - generic [ref=e405]:
+            - heading "Specialties" [level=4] [ref=e406]
+            - generic [ref=e407]:
+              - generic [ref=e408]: Web Development
+              - generic [ref=e409]: Platform Design
+              - generic [ref=e410]: Statistics
+          - generic [ref=e411]:
+            - button "Gamepad2" [ref=e412] [cursor=pointer]:
+              - button "Gamepad2" [ref=e413]:
+                - img [ref=e414]
+            - button "MessageCircle" [ref=e416] [cursor=pointer]:
+              - button "MessageCircle" [ref=e417]:
+                - img [ref=e418]
+      - generic [ref=e422]:
+        - button "Headphones" [ref=e423] [cursor=pointer]:
+          - img [ref=e424]
+        - generic [ref=e426]:
+          - heading "Need Help?" [level=3] [ref=e427]
+          - paragraph [ref=e428]: Our admins are available 24/7 to assist you
+    - generic [ref=e430]:
+      - generic [ref=e431]:
+        - heading "Support Our Server" [level=2] [ref=e432]
+        - paragraph [ref=e434]: Help keep our server running and get exclusive benefits with our VIP membership tiers
+      - generic [ref=e435]:
+        - generic [ref=e438]:
+          - generic [ref=e440]: 2x
+          - heading "VIP" [level=3] [ref=e441]
+          - generic [ref=e442]: €4.99/month
+          - list [ref=e443]:
+            - listitem [ref=e444]:
+              - generic [ref=e445]: 
+              - text: Double Experience (2x XP)
+            - listitem [ref=e446]:
+              - generic [ref=e447]: 
+              - text: Priority Server Access
+            - listitem [ref=e448]:
+              - generic [ref=e449]: 
+              - text: VIP Chat Color
+            - listitem [ref=e450]:
+              - generic [ref=e451]: 
+              - text: Reserved Slot
+            - listitem [ref=e452]:
+              - generic [ref=e453]: 
+              - text: Special VIP Badge
+            - listitem [ref=e454]:
+              - generic [ref=e455]: 
+              - text: Access to VIP-Only Events
+          - button "Buy VIP" [ref=e456] [cursor=pointer]
+        - generic [ref=e458]:
+          - generic [ref=e459]: MOST POPULAR
+          - generic [ref=e460]:
+            - generic [ref=e462]: 3x
+            - heading "VIP+" [level=3] [ref=e463]
+            - generic [ref=e464]: €9.99/month
+            - list [ref=e465]:
+              - listitem [ref=e466]:
+                - generic [ref=e467]: 
+                - text: Triple Experience (3x XP)
+              - listitem [ref=e468]:
+                - generic [ref=e469]: 
+                - text: All VIP Benefits
+              - listitem [ref=e470]:
+                - generic [ref=e471]: 
+                - text: Exclusive VIP+ Weapons
+              - listitem [ref=e472]:
+                - generic [ref=e473]: 
+                - text: Custom Player Model
+              - listitem [ref=e474]:
+                - generic [ref=e475]: 
+                - text: VIP+ Chat Commands
+              - listitem [ref=e476]:
+                - generic [ref=e477]: 
+                - text: Early Access to New Content
+              - listitem [ref=e478]:
+                - generic [ref=e479]: 
+                - text: Personal Admin Support
+              - listitem [ref=e480]:
+                - generic [ref=e481]: 
+                - text: Monthly Bonus Rewards
+            - button "Buy VIP+" [ref=e482] [cursor=pointer]
+      - generic [ref=e484]:
+        - heading "Why Support Us?" [level=3] [ref=e485]
+        - generic [ref=e486]:
+          - generic [ref=e487]:
+            - button "Server" [ref=e489] [cursor=pointer]:
+              - img [ref=e490]
+            - heading "Server Costs" [level=4] [ref=e493]
+            - paragraph [ref=e494]: Help us maintain high-performance servers and reliable uptime
+          - generic [ref=e495]:
+            - button "Code" [ref=e497] [cursor=pointer]:
+              - img [ref=e498]
+            - heading "Development" [level=4] [ref=e501]
+            - paragraph [ref=e502]: Fund continued development of custom content and features
+          - generic [ref=e503]:
+            - button "Users" [ref=e505] [cursor=pointer]:
+              - img [ref=e506]
+            - heading "Community" [level=4] [ref=e511]
+            - paragraph [ref=e512]: Support events, tournaments, and community activities
+      - generic [ref=e513]:
+        - paragraph [ref=e514]: All donations go directly to server maintenance and improvement
+        - generic [ref=e515]:
+          - button " PayPal" [ref=e516] [cursor=pointer]:
+            - generic [ref=e517]: 
+            - text: PayPal
+          - button " Credit Card" [ref=e518] [cursor=pointer]:
+            - generic [ref=e519]: 
+            - text: Credit Card
+    - generic [ref=e521]:
+      - generic [ref=e522]:
+        - heading "Get In Touch" [level=2] [ref=e523]
+        - paragraph [ref=e525]: Have questions, suggestions, or need support? We're here to help!
+      - generic [ref=e526]:
+        - generic [ref=e528]:
+          - heading "Send us a Message" [level=3] [ref=e529]
+          - generic [ref=e530]:
+            - generic [ref=e531]:
+              - generic [ref=e532]:
+                - generic [ref=e533]: Name *
+                - textbox "Name *" [ref=e534]:
+                  - /placeholder: Your name
+              - generic [ref=e535]:
+                - generic [ref=e536]: Email *
+                - textbox "Email *" [ref=e537]:
+                  - /placeholder: your@email.com
+            - generic [ref=e538]:
+              - generic [ref=e539]: Subject *
+              - combobox "Subject *" [ref=e540]:
+                - option "Select a subject" [selected]
+                - option "General Inquiry"
+                - option "Technical Support"
+                - option "VIP Membership"
+                - option "Report Player"
+                - option "Suggestion"
+                - option "Other"
+            - generic [ref=e541]:
+              - generic [ref=e542]: Message * (Max 500 characters)
+              - textbox "Message * (Max 500 characters)" [ref=e543]:
+                - /placeholder: Your message here...
+              - generic [ref=e544]: 0/500 characters
+            - button "Send Message" [ref=e545] [cursor=pointer]:
+              - generic [ref=e546]: 
+              - text: Send Message
+        - generic [ref=e547]:
+          - generic [ref=e549]:
+            - heading "Connect With Us" [level=3] [ref=e550]
+            - generic [ref=e551]:
+              - generic [ref=e552]:
+                - button "MessageCircle" [ref=e554] [cursor=pointer]:
+                  - img [ref=e555]
+                - generic [ref=e557]:
+                  - heading "Discord Server" [level=4] [ref=e558]
+                  - paragraph [ref=e559]: Join our community chat
+                  - button "discord.gg/uliunai" [ref=e560] [cursor=pointer]
+              - generic [ref=e561]:
+                - button "Gamepad2" [ref=e563] [cursor=pointer]:
+                  - img [ref=e564]
+                - generic [ref=e566]:
+                  - heading "Steam Group" [level=4] [ref=e567]
+                  - paragraph [ref=e568]: Follow for updates
+                  - button "steamcommunity.com/groups/uliunailt" [ref=e569] [cursor=pointer]
+              - generic [ref=e570]:
+                - button "Monitor" [ref=e572] [cursor=pointer]:
+                  - img [ref=e573]
+                - generic [ref=e575]:
+                  - heading "Game Server" [level=4] [ref=e576]
+                  - paragraph [ref=e577]: Direct connect
+                  - button "51.195.117.236:9980" [ref=e578] [cursor=pointer]
+          - generic [ref=e580]:
+            - heading "Quick Support" [level=3] [ref=e581]
+            - paragraph [ref=e582]: For immediate assistance, join our Discord server where our admins are most active.
+            - generic [ref=e583]:
+              - paragraph [ref=e584]:
+                - strong [ref=e585]: "Response Time:"
+                - text: Usually within 1-2 hours
+              - paragraph [ref=e586]:
+                - strong [ref=e587]: "Support Hours:"
+                - text: 24/7 via Discord
+  - contentinfo [ref=e588]:
+    - generic [ref=e589]:
+      - generic [ref=e590]:
+        - generic [ref=e591]:
+          - generic [ref=e592]:
+            - button "Skull" [ref=e594] [cursor=pointer]:
+              - img [ref=e595]
+            - heading "Uliunai.lt" [level=3] [ref=e600]
+          - paragraph [ref=e601]: The longest-running Killing Floor 1 server with custom content, active community, and years of reliable service. Join thousands of players in the ultimate zombie survival experience.
+          - generic [ref=e602]:
+            - button "MessageCircle" [ref=e603] [cursor=pointer]:
+              - button "MessageCircle" [ref=e604]:
+                - img [ref=e605]
+            - button "Gamepad2" [ref=e607] [cursor=pointer]:
+              - button "Gamepad2" [ref=e608]:
+                - img [ref=e609]
+            - button "Youtube" [ref=e611] [cursor=pointer]:
+              - button "Youtube" [ref=e612]:
+                - img [ref=e613]
+        - generic [ref=e616]:
+          - heading "Quick Links" [level=4] [ref=e617]
+          - list [ref=e618]:
+            - listitem [ref=e619]:
+              - button "Home" [ref=e620] [cursor=pointer]
+            - listitem [ref=e621]:
+              - button "About" [ref=e622] [cursor=pointer]
+            - listitem [ref=e623]:
+              - button "Server Info" [ref=e624] [cursor=pointer]
+            - listitem [ref=e625]:
+              - button "VIP Membership" [ref=e626] [cursor=pointer]
+            - listitem [ref=e627]:
+              - button "Contact" [ref=e628] [cursor=pointer]
+        - generic [ref=e629]:
+          - heading "Server Info" [level=4] [ref=e630]
+          - list [ref=e631]:
+            - listitem [ref=e632]:
+              - strong [ref=e633]: "IP:"
+              - text: uliunai.lt:7707
+            - listitem [ref=e634]:
+              - strong [ref=e635]: "Game:"
+              - text: Killing Floor 1
+            - listitem [ref=e636]:
+              - strong [ref=e637]: "Max Players:"
+              - text: "32"
+            - listitem [ref=e638]:
+              - strong [ref=e639]: "Location:"
+              - text: Lithuania
+            - listitem [ref=e640]:
+              - strong [ref=e641]: "Uptime:"
+              - text: 99.9%
+      - generic [ref=e643]:
+        - paragraph [ref=e644]: © 2026 Uliunai.lt. All rights reserved. Not affiliated with Tripwire Interactive. Designed by Litenweb.
+        - generic [ref=e645]:
+          - button "Privacy Policy" [ref=e646] [cursor=pointer]
+          - button "Terms of Service" [ref=e647] [cursor=pointer]
+          - link "Website Builder" [ref=e648] [cursor=pointer]:
+            - /url: https://readdy.ai/?origin=logo

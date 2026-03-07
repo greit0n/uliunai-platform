@@ -26,6 +26,8 @@ import type {
   MapsData,
   IpPolicyData,
   IpPolicy,
+  VotingGameConfigData,
+  VotingGameConfigEntry,
 } from '@/types'
 
 // ---------------------------------------------------------------------------
@@ -163,6 +165,13 @@ export function parsePlayers(html: string): PlayersData {
           const cells = Array.from(row.querySelectorAll('td'))
           // Player rows have 10 cells: Kick, Session, Ban, Name, Team, Ping, Score, Team Kills, IP, Global ID
           if (cells.length >= 10) {
+            // Extract checkbox field names from the first 3 cells (Kick, Session, Ban)
+            const checkboxes = Array.from(row.querySelectorAll<HTMLInputElement>('input[type="checkbox"]'))
+            // Field names are Kick{N}, Session{N}, Ban{N} (e.g. Kick2, Session2, Ban2)
+            const kickCb = checkboxes.find((cb) => cb.name.startsWith('Kick'))
+            const sessionCb = checkboxes.find((cb) => cb.name.startsWith('Session'))
+            const banCb = checkboxes.find((cb) => cb.name.startsWith('Ban'))
+
             players.push({
               name: cells[3]?.textContent?.trim() ?? '',
               team: cells[4]?.textContent?.trim() ?? '',
@@ -171,6 +180,9 @@ export function parsePlayers(html: string): PlayersData {
               teamKills: parseInt(cells[7]?.textContent?.trim() ?? '0', 10) || 0,
               ip: cells[8]?.textContent?.trim() ?? '',
               globalId: cells[9]?.textContent?.trim() ?? '',
+              kickField: kickCb?.name ?? '',
+              sessionField: sessionCb?.name ?? '',
+              banField: banCb?.name ?? '',
             })
           }
         }
@@ -253,15 +265,23 @@ export function parseConsoleLog(html: string): string[] {
 
   const contentCell = endAnchor.parentElement
 
-  // Get the HTML content of the cell and extract text before the anchor
-  const cellHtml = contentCell.innerHTML
-  const anchorIdx = cellHtml.indexOf('<a ')
-  const logHtml = anchorIdx >= 0 ? cellHtml.substring(0, anchorIdx) : cellHtml
+  // Clone the cell and remove the anchor so we only have log content
+  const clone = contentCell.cloneNode(true) as HTMLElement
+  const anchor = clone.querySelector('a[name="END"]')
+  anchor?.remove()
 
-  // Split by <br> tags and filter out empty lines
-  const lines = logHtml
-    .split(/<br\s*\/?>/i)
-    .map((line) => line.replace(/<[^>]*>/g, '').trim())
+  // Split by <br> elements: replace them with a unique separator,
+  // then use textContent to auto-decode all HTML entities (&gt; &nbsp; etc.)
+  const brs = clone.querySelectorAll('br')
+  const SEP = '\x00'
+  for (const br of Array.from(brs)) {
+    br.replaceWith(SEP)
+  }
+
+  const text = clone.textContent ?? ''
+  const lines = text
+    .split(SEP)
+    .map((line) => line.replace(/\u00a0/g, ' ').trim())
     .filter((line) => line.length > 0)
 
   return lines
@@ -568,6 +588,92 @@ export function parseMaps(html: string): MapsData {
  * @param html - Raw HTML from `defaults_ippolicy`
  * @returns IpPolicyData
  */
+/**
+ * Parse the Voting GameConfig page (`defaults_votinggameconfig`).
+ *
+ * Each config entry is a `<form>` with action `defaults_votinggameconfig?GameConfigIndex=N`.
+ * Entries can be in view mode (plain text cells + Edit button) or edit mode
+ * (select/text inputs + Update/Delete buttons). The last form with a "New"
+ * button is the "add new" action.
+ *
+ * @param html - Raw HTML from `defaults_votinggameconfig`
+ * @returns VotingGameConfigData
+ */
+export function parseVotingGameConfig(html: string): VotingGameConfigData {
+  const doc = parse(html)
+  const serverInfo = extractServerInfo(doc)
+
+  const ttextEls = Array.from(doc.querySelectorAll('td.ttext'))
+  const description = ttextEls[1]?.textContent?.trim() ?? ''
+
+  const entries: VotingGameConfigEntry[] = []
+  let newIndex = -10
+
+  const forms = Array.from(doc.querySelectorAll('form[action^="defaults_votinggameconfig"]'))
+
+  for (const form of forms) {
+    const actionAttr = form.getAttribute('action') ?? ''
+    const indexMatch = actionAttr.match(/GameConfigIndex=(-?\d+)/)
+    const configIndex = indexMatch ? parseInt(indexMatch[1] ?? '0', 10) : 0
+
+    // The "New" button form — just capture the index for creating new entries
+    const newButton = form.querySelector<HTMLInputElement>('input[type="submit"][name="New"]')
+    if (newButton) {
+      newIndex = configIndex
+      continue
+    }
+
+    // Check if this is in edit mode (has input fields) or view mode (plain text)
+    const gameTypeSelect = form.querySelector<HTMLSelectElement>('select[name="GameType"]')
+    const isEditing = gameTypeSelect !== null
+
+    if (isEditing) {
+      const mapPrefixesInput = form.querySelector<HTMLInputElement>('input[name="MapPrefixes"]')
+      const abbreviationInput = form.querySelector<HTMLInputElement>('input[name="Abbreviation"]')
+      const nameInput = form.querySelector<HTMLInputElement>('input[name="Name"]')
+      const optionsInput = form.querySelector<HTMLInputElement>('input[name="Options"]')
+      const mutatorsSelect = form.querySelector<HTMLSelectElement>('select[name="Mutators"]')
+
+      const selectedMutators: string[] = []
+      if (mutatorsSelect) {
+        for (const opt of Array.from(mutatorsSelect.selectedOptions)) {
+          selectedMutators.push(opt.value)
+        }
+      }
+
+      entries.push({
+        index: configIndex,
+        gameType: gameTypeSelect.value,
+        mapPrefixes: mapPrefixesInput?.value ?? '',
+        abbreviation: abbreviationInput?.value ?? '',
+        name: nameInput?.value ?? '',
+        mutators: selectedMutators,
+        options: optionsInput?.value ?? '',
+        isEditing: true,
+        gameTypeOptions: parseSelectOptions(gameTypeSelect),
+        mutatorOptions: mutatorsSelect ? parseSelectOptions(mutatorsSelect) : [],
+      })
+    } else {
+      // View mode — extract text from td cells
+      const tds = Array.from(form.querySelectorAll('td[valign="top"]'))
+      entries.push({
+        index: configIndex,
+        gameType: tds[0]?.textContent?.trim() ?? '',
+        mapPrefixes: tds[1]?.textContent?.trim() ?? '',
+        abbreviation: tds[2]?.textContent?.trim() ?? '',
+        name: tds[3]?.textContent?.trim() ?? '',
+        mutators: [],
+        options: tds[5]?.textContent?.trim() ?? '',
+        isEditing: false,
+        gameTypeOptions: [],
+        mutatorOptions: [],
+      })
+    }
+  }
+
+  return { serverInfo, description, entries, newIndex }
+}
+
 export function parseIpPolicies(html: string): IpPolicyData {
   const doc = parse(html)
   const serverInfo = extractServerInfo(doc)

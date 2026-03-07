@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { api } from '@/services/api'
 import { parseIpPolicies } from '@/services/parsers'
 import { useServerStore } from '@/stores/server'
@@ -10,6 +10,7 @@ const data = ref<IpPolicyData | null>(null)
 const loading = ref(true)
 const error = ref('')
 const submittingRow = ref<number | null>(null)
+const success = ref('')
 
 // Local editable copies of policy rows
 const editedPolicies = ref<Array<{ action: 'ACCEPT' | 'DENY'; ipMask: string }>>([])
@@ -18,7 +19,7 @@ async function load() {
   loading.value = true
   error.value = ''
   try {
-    const html = await api.fetchPage('defaults_ippolicy')
+    const html = await api.fetchPage('defaults_ippolicy', { GameType: store.defaultsGameType })
     data.value = parseIpPolicies(html)
     store.updateServerInfo(data.value.serverInfo.mapName, data.value.serverInfo.gameType)
     syncEdited()
@@ -60,12 +61,17 @@ async function submitRow(policy: IpPolicy, index: number, buttonAction: 'Update'
     const html = await api.submitForm(`defaults_ippolicy?IpNo=${policy.index}`, formData)
     data.value = parseIpPolicies(html)
     syncEdited()
+    const msg = buttonAction === 'Delete' ? 'Policy deleted' : buttonAction === 'New' ? 'Policy added' : 'Policy updated'
+    success.value = msg
+    setTimeout(() => { success.value = '' }, 3000)
   } catch (e) {
     error.value = (e as Error).message
   } finally {
     submittingRow.value = null
   }
 }
+
+watch(() => store.defaultsGameType, () => { load() })
 
 onMounted(load)
 </script>
@@ -202,7 +208,10 @@ onMounted(load)
         </div>
       </div>
 
-      <div v-if="error" class="mt-4 text-red-400 text-sm">
+      <div v-if="success" class="mt-4 text-green-400 text-sm flex items-center gap-1">
+        <i class="ri-checkbox-circle-line"></i>{{ success }}
+      </div>
+      <div v-else-if="error" class="mt-4 text-red-400 text-sm">
         <i class="ri-error-warning-line mr-1"></i>{{ error }}
       </div>
     </div>

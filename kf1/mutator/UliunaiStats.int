@@ -1,0 +1,2 @@
+[Public]
+Object=(Class=Class,MetaClass=Engine.Mutator,Name=UliunaiStats.UliunaiStats,Description="Uliunai Live Stats|Exports live game state as JSON for websites and external tools.")

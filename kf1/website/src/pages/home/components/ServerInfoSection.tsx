@@ -1,7 +1,5 @@
 import { MotionIcon } from 'motion-icons-react';
-import Button from '../../../components/base/Button';
 import Card from '../../../components/base/Card';
-import LiveStats from '../../../components/feature/LiveStats';
 import useScrollReveal from '@/hooks/useScrollReveal';
 
 /**
@@ -59,36 +57,6 @@ export default function ServerInfoSection() {
     }
   ];
 
-  /**
-   * Opens the Steam client to connect to the game server.
-   *
-   * @description Uses the Steam protocol handler to launch the game client
-   * and connect directly to the server at uliunai.lt:7707.
-   */
-  const handleJoinServer = () => {
-    window.open('steam://connect/51.195.117.236:9980', '_blank');
-  };
-
-  /**
-   * Placeholder handler for viewing player rankings.
-   *
-   * @description Currently shows an alert indicating the feature is coming soon.
-   * In production, this would navigate to a rankings page or open a rankings modal.
-   */
-  const handleViewRankings = () => {
-    alert('Rankings feature coming soon!');
-  };
-
-  /**
-   * Placeholder handler for viewing online players list.
-   *
-   * @description Currently shows an alert indicating the feature is coming soon.
-   * In production, this would display a list of currently online players.
-   */
-  const handleViewPlayers = () => {
-    alert('Online players list coming soon!');
-  };
-
   return (
     <section id="server-info" ref={sectionRef} className="py-20 bg-gray-900/80">
       <div className="container mx-auto px-4">
@@ -105,9 +73,9 @@ export default function ServerInfoSection() {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {features.map((feature, index) => (
             <div key={index} className="scroll-reveal" style={{ animationDelay: `${(index + 1) * 0.1}s` }}>
-              <Card variant="dark" className="text-center hover:scale-105 transition-transform duration-300 h-full">
+              <Card variant="dark" className="text-center hover:scale-[1.02] transition-transform duration-300 h-full">
                 <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MotionIcon name={feature.icon} color="white" size={28} animation={feature.animation} trigger="hover" interactive />
+                  <MotionIcon name={feature.icon} color="white" size={28} />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 font-orbitron">{feature.title}</h3>
                 <p className="text-gray-400">{feature.description}</p>
@@ -116,50 +84,40 @@ export default function ServerInfoSection() {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 items-start">
-          <div className="lg:col-span-2">
-            <Card variant="blood">
-              <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Server Information</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="text-lg font-bold text-red-400 mb-3">Connection Details</h4>
-                  <div className="space-y-2 text-gray-300">
-                    <div><strong>Server IP:</strong> <span className="font-mono text-red-400">51.195.117.236:9980</span></div>
-                    <div><strong>Game Version:</strong> Killing Floor v1065</div>
-                    <div><strong>Max Players:</strong> 32</div>
-                    <div><strong>Difficulty:</strong> HOE / Suicidal / Hard</div>
-                  </div>
+        {/* Discord Community Banner */}
+        <div className="scroll-reveal">
+          <div className="relative overflow-hidden rounded-lg border border-red-900/30 bg-gradient-to-r from-[#5865F2]/20 via-black/60 to-red-900/20 p-8 md:p-12">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#5865F2]/10 to-red-600/10 opacity-50"></div>
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-5">
+                <div className="w-16 h-16 bg-[#5865F2] rounded-2xl flex items-center justify-center shadow-lg shadow-[#5865F2]/30 flex-shrink-0">
+                  <i className="ri-discord-fill text-white text-3xl"></i>
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-red-400 mb-3">Server Features</h4>
-                  <div className="space-y-2 text-gray-300">
-                    <div>✓ 150 Level Cap</div>
-                    <div>✓ +6 Custom Perks</div>
-                    <div>✓ Custom Weapons &amp; Maps</div>
-                    <div>✓ VIP System Available</div>
-                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white font-orbitron mb-1">
+                    Join Our Community
+                  </h3>
+                  <p className="text-gray-300 text-lg">
+                    Chat with players, get server updates, find teammates, and connect with admins
+                  </p>
                 </div>
               </div>
-
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Button variant="primary" onClick={handleJoinServer} className="pulse-glow flex items-center gap-2">
-                  <i className="ri-gamepad-fill"></i>
-                  Join Server
-                </Button>
-                <Button variant="outline" onClick={handleViewRankings} className="pulse-glow flex items-center gap-2">
-                  <i className="ri-trophy-fill"></i>
-                  View Rankings
-                </Button>
-                <Button variant="outline" onClick={handleViewPlayers} className="pulse-glow flex items-center gap-2">
-                  <i className="ri-user-line"></i>
-                  Online Players
-                </Button>
-              </div>
-            </Card>
-          </div>
-
-          <div>
-            <LiveStats />
+              <a
+                href="https://discord.gg/uliunai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pulse-glow flex items-center gap-3 bg-[#5865F2] hover:bg-[#4752C4] text-white px-8 py-4 rounded-lg text-lg font-bold transition-colors whitespace-nowrap shadow-lg shadow-[#5865F2]/25"
+              >
+                <i className="ri-discord-fill text-xl"></i>
+                Join Discord
+              </a>
+            </div>
+            <div className="relative z-10 mt-6 flex flex-wrap gap-6 justify-center md:justify-start text-sm text-gray-400">
+              <span className="flex items-center gap-2"><i className="ri-group-line text-[#5865F2]"></i> Active Community</span>
+              <span className="flex items-center gap-2"><i className="ri-notification-3-line text-[#5865F2]"></i> Server Announcements</span>
+              <span className="flex items-center gap-2"><i className="ri-customer-service-2-line text-[#5865F2]"></i> Admin Support</span>
+              <span className="flex items-center gap-2"><i className="ri-calendar-event-line text-[#5865F2]"></i> Event Updates</span>
+            </div>
           </div>
         </div>
       </div>

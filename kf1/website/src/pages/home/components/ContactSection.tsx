@@ -229,12 +229,12 @@ export default function ContactSection() {
 
           <div className="space-y-8">
             <div className="scroll-reveal" style={{ animationDelay: '0.2s' }}>
-            <Card variant="blood">
+            <Card variant="blood" className="hover:scale-[1.02] transition-transform duration-300">
               <h3 className="text-2xl font-bold text-white mb-6 font-orbitron">Connect With Us</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <MotionIcon name="MessageCircle" color="white" size={22} animation="bounce" trigger="hover" interactive />
+                    <MotionIcon name="MessageCircle" color="white" size={22} />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white">Discord Server</h4>
@@ -247,7 +247,7 @@ export default function ContactSection() {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <MotionIcon name="Gamepad2" color="white" size={22} animation="wiggle" trigger="hover" interactive />
+                    <MotionIcon name="Gamepad2" color="white" size={22} />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white">Steam Group</h4>
@@ -260,13 +260,13 @@ export default function ContactSection() {
 
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                    <MotionIcon name="Monitor" color="white" size={22} animation="pulse" trigger="hover" interactive />
+                    <MotionIcon name="Monitor" color="white" size={22} />
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-white">Game Server</h4>
                     <p className="text-gray-300">Direct connect</p>
                     <button className="text-red-400 hover:text-red-300 transition-colors cursor-pointer whitespace-nowrap font-mono">
-                      51.195.117.236:9980
+                      94.130.51.236:7707
                     </button>
                   </div>
                 </div>
@@ -275,7 +275,7 @@ export default function ContactSection() {
             </div>
 
             <div className="scroll-reveal" style={{ animationDelay: '0.3s' }}>
-            <Card variant="dark">
+            <Card variant="dark" className="hover:scale-[1.02] transition-transform duration-300">
               <h3 className="text-xl font-bold text-white mb-4 font-orbitron">Quick Support</h3>
               <p className="text-gray-300 mb-4">
                 For immediate assistance, join our Discord server where our admins are most active.

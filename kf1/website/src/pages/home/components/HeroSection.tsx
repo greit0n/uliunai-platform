@@ -21,7 +21,7 @@ export default function HeroSection() {
    * and connect directly to the server at uliunai.lt:7707.
    */
   const handleJoinServer = () => {
-    window.open('steam://connect/51.195.117.236:9980', '_blank');
+    window.open('steam://run/1250//+connect%2094.130.51.236:7707', '_self');
   };
 
   /**
@@ -31,7 +31,7 @@ export default function HeroSection() {
    * smooth scrolling behavior. Used by the scroll-down arrow indicator.
    */
   const handleScrollToNext = () => {
-    const element = document.getElementById('about');
+    const element = document.getElementById('scoreboard');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -92,14 +92,14 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          <div className="scroll-reveal max-w-md mx-auto">
+          <div className="scroll-reveal max-w-3xl mx-auto">
             <LiveStats />
           </div>
         </div>
       </div>
       
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:opacity-80 transition-opacity"
+      <div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-red-400 transition-colors z-10"
         onClick={handleScrollToNext}
         role="button"
         aria-label="Scroll to next section"

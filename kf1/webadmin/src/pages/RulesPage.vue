@@ -13,6 +13,7 @@ const data = ref<RulesData | null>(null)
 const loading = ref(true)
 const error = ref('')
 const submitting = ref(false)
+const success = ref('')
 
 // Track form values
 const formValues = ref<Record<string, string>>({})
@@ -43,7 +44,7 @@ async function load() {
   try {
     const filterValue = slugToFilter(currentSlug.value)
     const html = await api.fetchPage('defaults_rules', {
-      GameType: 'KFMod.KFGameType',
+      GameType: store.defaultsGameType,
       Filter: filterValue,
     })
     data.value = parseRules(html)
@@ -90,6 +91,8 @@ async function submit() {
 
     const html = await api.submitForm('defaults_rules', formData)
     data.value = parseRules(html)
+    success.value = 'Settings saved! Changes take effect on next map change.'
+    setTimeout(() => { success.value = '' }, 4000)
   } catch (e) {
     error.value = (e as Error).message
   } finally {
@@ -109,9 +112,16 @@ function securityColor(level: number): string {
   return 'text-green-400 bg-green-900/20'
 }
 
-// Watch for route param changes
+// Watch for route param changes and game type changes
 watch(
   () => route.params.filter,
+  () => {
+    load()
+  }
+)
+
+watch(
+  () => store.defaultsGameType,
   () => {
     load()
   }
@@ -255,7 +265,10 @@ onMounted(load)
             <i class="ri-save-line" :class="{ 'animate-pulse': submitting }"></i>
             Save Settings
           </button>
-          <span v-if="error" class="text-red-400 text-sm">
+          <span v-if="success" class="text-green-400 text-sm flex items-center gap-1">
+            <i class="ri-checkbox-circle-line"></i>{{ success }}
+          </span>
+          <span v-else-if="error" class="text-red-400 text-sm">
             <i class="ri-error-warning-line mr-1"></i>{{ error }}
           </span>
         </div>

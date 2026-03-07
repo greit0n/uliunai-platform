@@ -1,0 +1,25 @@
+{
+  "wave": { "current": 7, "total": 10, "inProgress": true, "traderTime": false },
+  "zeds": { "alive": 14, "maxAtOnce": 24 },
+  "difficulty": "Hard",
+  "difficultyNum": 4,
+  "map": "KF-BioticsLab",
+  "players": [
+    { "name": "FragMaster", "perk": "Commando", "perkLevel": 6, "kills": 47, "monsterKills": { "clot": 19, "gorefast": 7, "crawler": 10, "stalker": 1, "bloat": 3, "siren": 0, "husk": 3, "scrake": 2, "fleshpound": 1, "boss": 0, "other": 1 }, "cash": 3100, "health": 0, "maxHealth": 100, "deaths": 2, "ping": 32 },
+    { "name": "Zer0Kill", "perk": "Berserker", "perkLevel": 5, "kills": 43, "monsterKills": { "clot": 12, "gorefast": 7, "crawler": 10, "stalker": 5, "bloat": 1, "siren": 3, "husk": 1, "scrake": 1, "fleshpound": 1, "boss": 0, "other": 2 }, "cash": 2350, "health": 100, "maxHealth": 100, "deaths": 3, "ping": 28 },
+    { "name": "BloodRaven", "perk": "Sharpshooter", "perkLevel": 6, "kills": 41, "monsterKills": { "clot": 17, "gorefast": 9, "crawler": 9, "stalker": 1, "bloat": 2, "siren": 0, "husk": 3, "scrake": 0, "fleshpound": 0, "boss": 0, "other": 0 }, "cash": 1800, "health": 78, "maxHealth": 100, "deaths": 1, "ping": 45 },
+    { "name": "NightStalker", "perk": "FieldMedic", "perkLevel": 6, "kills": 35, "monsterKills": { "clot": 7, "gorefast": 4, "crawler": 9, "stalker": 5, "bloat": 4, "siren": 3, "husk": 1, "scrake": 0, "fleshpound": 1, "boss": 0, "other": 1 }, "cash": 4200, "health": 100, "maxHealth": 100, "deaths": 4, "ping": 18 },
+    { "name": "DeadShot", "perk": "SupportSpec", "perkLevel": 5, "kills": 35, "monsterKills": { "clot": 14, "gorefast": 4, "crawler": 9, "stalker": 4, "bloat": 2, "siren": 0, "husk": 1, "scrake": 0, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 1500, "health": 45, "maxHealth": 100, "deaths": 2, "ping": 55 },
+    { "name": "ShadowHunter", "perk": "Firebug", "perkLevel": 4, "kills": 33, "monsterKills": { "clot": 10, "gorefast": 6, "crawler": 3, "stalker": 6, "bloat": 1, "siren": 2, "husk": 1, "scrake": 2, "fleshpound": 0, "boss": 0, "other": 2 }, "cash": 900, "health": 92, "maxHealth": 100, "deaths": 5, "ping": 67 },
+    { "name": "CrimsonBlade", "perk": "Demolitions", "perkLevel": 6, "kills": 31, "monsterKills": { "clot": 8, "gorefast": 5, "crawler": 7, "stalker": 3, "bloat": 2, "siren": 1, "husk": 2, "scrake": 1, "fleshpound": 1, "boss": 0, "other": 1 }, "cash": 2800, "health": 100, "maxHealth": 100, "deaths": 1, "ping": 22 },
+    { "name": "GhostReaper", "perk": "Commando", "perkLevel": 5, "kills": 28, "monsterKills": { "clot": 10, "gorefast": 4, "crawler": 6, "stalker": 3, "bloat": 1, "siren": 1, "husk": 1, "scrake": 1, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 1650, "health": 85, "maxHealth": 100, "deaths": 3, "ping": 41 },
+    { "name": "VenomStrike", "perk": "FieldMedic", "perkLevel": 4, "kills": 25, "monsterKills": { "clot": 9, "gorefast": 3, "crawler": 5, "stalker": 2, "bloat": 2, "siren": 1, "husk": 1, "scrake": 0, "fleshpound": 1, "boss": 0, "other": 1 }, "cash": 3500, "health": 100, "maxHealth": 100, "deaths": 2, "ping": 35 },
+    { "name": "ThunderBolt", "perk": "Demolitions", "perkLevel": 5, "kills": 22, "monsterKills": { "clot": 5, "gorefast": 3, "crawler": 4, "stalker": 2, "bloat": 3, "siren": 1, "husk": 2, "scrake": 1, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 2100, "health": 65, "maxHealth": 100, "deaths": 4, "ping": 52 },
+    { "name": "IronFist", "perk": "Berserker", "perkLevel": 6, "kills": 20, "monsterKills": { "clot": 6, "gorefast": 4, "crawler": 3, "stalker": 2, "bloat": 1, "siren": 1, "husk": 1, "scrake": 1, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 1900, "health": 100, "maxHealth": 100, "deaths": 1, "ping": 19 },
+    { "name": "SkullCrusher", "perk": "SupportSpec", "perkLevel": 4, "kills": 18, "monsterKills": { "clot": 7, "gorefast": 2, "crawler": 3, "stalker": 1, "bloat": 2, "siren": 0, "husk": 1, "scrake": 1, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 1200, "health": 55, "maxHealth": 100, "deaths": 3, "ping": 73 },
+    { "name": "DarkPhoenix", "perk": "Sharpshooter", "perkLevel": 5, "kills": 16, "monsterKills": { "clot": 5, "gorefast": 2, "crawler": 4, "stalker": 1, "bloat": 1, "siren": 1, "husk": 0, "scrake": 1, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 2400, "health": 100, "maxHealth": 100, "deaths": 0, "ping": 29 },
+    { "name": "WolfBane", "perk": "Firebug", "perkLevel": 5, "kills": 14, "monsterKills": { "clot": 5, "gorefast": 3, "crawler": 2, "stalker": 1, "bloat": 1, "siren": 0, "husk": 1, "scrake": 0, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 800, "health": 30, "maxHealth": 100, "deaths": 6, "ping": 88 },
+    { "name": "SteelViper", "perk": "Commando", "perkLevel": 3, "kills": 11, "monsterKills": { "clot": 4, "gorefast": 2, "crawler": 2, "stalker": 1, "bloat": 0, "siren": 1, "husk": 0, "scrake": 0, "fleshpound": 0, "boss": 0, "other": 1 }, "cash": 600, "health": 100, "maxHealth": 100, "deaths": 2, "ping": 44 }
+  ],
+  "playerCount": 15
+}

@@ -14,6 +14,7 @@ const botQuantity = ref('1')
 const botChecked = ref<Record<string, boolean>>({})
 const submittingQuantity = ref(false)
 const submittingSelect = ref(false)
+const success = ref('')
 
 async function load() {
   loading.value = true
@@ -47,6 +48,8 @@ async function submitQuantity() {
       addbotnum: 'Accept',
     })
     data.value = parseBots(html)
+    success.value = `${botAction.value === 'Add' ? 'Added' : 'Removed'} ${botQuantity.value} bot(s)`
+    setTimeout(() => { success.value = '' }, 3000)
   } catch (e) {
     error.value = (e as Error).message
   } finally {
@@ -75,6 +78,8 @@ async function submitSelectedBots() {
 
     const html = await api.submitForm('current_bots', formData)
     data.value = parseBots(html)
+    success.value = 'Bot selection updated'
+    setTimeout(() => { success.value = '' }, 3000)
   } catch (e) {
     error.value = (e as Error).message
   } finally {
@@ -188,7 +193,10 @@ onMounted(load)
         </div>
       </div>
 
-      <div v-if="error" class="text-red-400 text-sm">
+      <div v-if="success" class="text-green-400 text-sm flex items-center gap-1">
+        <i class="ri-checkbox-circle-line"></i>{{ success }}
+      </div>
+      <div v-else-if="error" class="text-red-400 text-sm">
         <i class="ri-error-warning-line mr-1"></i>{{ error }}
       </div>
     </div>

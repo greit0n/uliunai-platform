@@ -1,4 +1,5 @@
 import { MotionIcon } from 'motion-icons-react';
+import { Link } from 'react-router-dom';
 
 /**
  * Footer component displaying site footer with links and server information.
@@ -31,7 +32,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center">
-                <MotionIcon name="Skull" color="white" size={22} animation="shake" trigger="hover" interactive />
+                <MotionIcon name="Skull" color="white" size={22} animation="shake"  />
               </div>
               <h3 className="text-2xl font-bold text-white font-orbitron">
                 <span className="text-red-500">Uliunai</span>.lt
@@ -43,13 +44,13 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <button className="w-10 h-10 bg-gray-800 hover:bg-red-600 hover:shadow-red-glow rounded-lg flex items-center justify-center transition-colors cursor-pointer">
-                <MotionIcon name="MessageCircle" color="white" size={18} animation="bounce" trigger="hover" interactive />
+                <MotionIcon name="MessageCircle" color="white" size={18} animation="bounce"  />
               </button>
               <button className="w-10 h-10 bg-gray-800 hover:bg-red-600 hover:shadow-red-glow rounded-lg flex items-center justify-center transition-colors cursor-pointer">
-                <MotionIcon name="Gamepad2" color="white" size={18} animation="wiggle" trigger="hover" interactive />
+                <MotionIcon name="Gamepad2" color="white" size={18} animation="wiggle"  />
               </button>
               <button className="w-10 h-10 bg-gray-800 hover:bg-red-600 hover:shadow-red-glow rounded-lg flex items-center justify-center transition-colors cursor-pointer">
-                <MotionIcon name="Youtube" color="white" size={18} animation="bounce" trigger="hover" interactive />
+                <MotionIcon name="Youtube" color="white" size={18} animation="bounce"  />
               </button>
             </div>
           </div>
@@ -104,7 +105,7 @@ export default function Footer() {
             <h4 className="text-lg font-bold text-white mb-4 font-orbitron">Server Info</h4>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <strong className="text-red-400">IP:</strong> uliunai.lt:7707
+                <strong className="text-red-400">IP:</strong> 94.130.51.236:7707
               </li>
               <li>
                 <strong className="text-red-400">Game:</strong> Killing Floor 1
@@ -128,20 +129,12 @@ export default function Footer() {
               © {currentYear} Uliunai.lt. All rights reserved. Not affiliated with Tripwire Interactive. Designed by Litenweb.
             </p>
             <div className="flex items-center gap-4 mt-4 md:mt-0">
-              <button className="text-gray-400 hover:text-red-400 text-sm transition-colors cursor-pointer whitespace-nowrap">
+              <Link to="/privacy" className="text-gray-400 hover:text-red-400 text-sm transition-colors whitespace-nowrap">
                 Privacy Policy
-              </button>
-              <button className="text-gray-400 hover:text-red-400 text-sm transition-colors cursor-pointer whitespace-nowrap">
+              </Link>
+              <Link to="/terms" className="text-gray-400 hover:text-red-400 text-sm transition-colors whitespace-nowrap">
                 Terms of Service
-              </button>
-              <a
-                href="https://readdy.ai/?origin=logo"
-                className="text-gray-400 hover:text-red-400 text-sm transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Website Builder
-              </a>
+              </Link>
             </div>
           </div>
         </div>
