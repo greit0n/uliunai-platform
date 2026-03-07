@@ -12,7 +12,7 @@ const error = ref('')
 const uploading = ref<string | null>(null)
 const search = ref('')
 const currentPage = ref(1)
-const perPage = 9
+const perPage = 16
 
 const filteredMaps = computed(() => {
   if (!search.value) return allMaps.value
@@ -148,14 +148,14 @@ onMounted(load)
         <p class="text-sm">No maps matching "{{ search }}"</p>
       </div>
 
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div v-else class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         <div
           v-for="mapName in paginatedMaps"
           :key="mapName"
           class="bg-[#1a1a1a]/50 border border-red-900/20 rounded-lg overflow-hidden group"
         >
           <!-- Image preview or placeholder -->
-          <div class="relative aspect-square bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+          <div class="relative aspect-[4/3] bg-gradient-to-br from-gray-900 to-black overflow-hidden">
             <img
               v-if="mapImages[mapName]"
               :src="imageUrl(mapImages[mapName]!)"
