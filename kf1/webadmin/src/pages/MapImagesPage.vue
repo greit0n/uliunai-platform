@@ -99,7 +99,7 @@ onMounted(load)
 <template>
   <div class="p-6">
     <h1 class="text-2xl font-['Orbitron'] font-bold text-white mb-2">
-      <i class="ri-image-line text-red-500 mr-2"></i>Map Images
+      <i class="ri-gallery-line text-red-500 mr-2"></i>Map Images
       <span v-if="!loading" class="text-gray-500 font-normal text-base ml-2">({{ allMaps.length }})</span>
     </h1>
     <p class="text-gray-400 text-sm mb-4">
@@ -109,13 +109,13 @@ onMounted(load)
     <!-- Search -->
     <div v-if="!loading && allMaps.length > 0" class="mb-4">
       <div class="relative max-w-sm">
-        <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+        <i class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm"></i>
         <input
           v-model="search"
           @input="onSearch"
           type="text"
           placeholder="Search maps..."
-          class="w-full bg-[#1a1a1a] border border-red-900/30 rounded-lg pl-9 pr-4 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-red-600/60 transition-colors"
+          class="w-full bg-[#1a1a1a] border border-red-900/30 rounded-lg pl-10 pr-4 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-red-600/60 transition-colors"
         />
         <button
           v-if="search"
@@ -155,7 +155,7 @@ onMounted(load)
           class="bg-[#1a1a1a]/50 border border-red-900/20 rounded-lg overflow-hidden group"
         >
           <!-- Image preview or placeholder -->
-          <div class="relative h-36 bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+          <div class="relative aspect-square bg-gradient-to-br from-gray-900 to-black overflow-hidden">
             <img
               v-if="mapImages[mapName]"
               :src="imageUrl(mapImages[mapName]!)"
@@ -164,7 +164,7 @@ onMounted(load)
             />
             <div v-else class="flex items-center justify-center h-full">
               <div class="text-center">
-                <i class="ri-image-add-line text-3xl text-gray-700 mb-1 block"></i>
+                <i class="ri-image-add-fill text-3xl text-gray-700 mb-1 block"></i>
                 <span class="text-gray-600 text-xs">No image</span>
               </div>
             </div>
